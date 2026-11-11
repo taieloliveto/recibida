@@ -9,6 +9,8 @@
 <meta property="og:description" content="19 h acto · ~21 h huevada · Pabellón III, FADU, Ciudad Universitaria">
 <meta property="og:image" content="img/prototipo.png">
 <meta name="theme-color" content="#F1EFE8">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/prototipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -65,6 +67,21 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 #nombre:focus{outline:3px solid var(--blue);outline-offset:2px}
 #nombre[aria-invalid="true"]{border-color:#B3261E}
 .chip{padding:3px 8px;border:1.5px solid var(--ink);background:var(--white);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
+.bus{min-width:46px;text-align:center;padding:8px 8px 9px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:900;font-stretch:90%;line-height:1;border-width:2px}
+.b28{background:linear-gradient(#FFFFFF 0 70%,#1E7A3C 70% 100%);color:#14532D}
+.b33,.b45{background:linear-gradient(#1E7A3C 0 32%,#FFFFFF 32% 100%);color:#14532D;padding-top:13px}
+.b34{background:linear-gradient(#1D4ED8 0 30%,#FFFFFF 30% 78%,#D62828 78% 100%);color:#1D3A8A;padding-top:13px;padding-bottom:12px}
+.b37{background:linear-gradient(#6CC04A 0 30%,#FFFFFF 30% 80%,#16181B 80% 100%);color:#16181B;padding-top:13px;padding-bottom:12px}
+.b42{background:linear-gradient(#C8102E 0 30%,#F3E6C4 30% 80%,#CDB892 80% 100%);color:#8B0A1F;padding-top:13px;padding-bottom:12px}
+.b107{background:linear-gradient(#FFFFFF 0 66%,#1E7A3C 66% 75%,#C9962B 75% 84%,#1D4ED8 84% 92%,#D62828 92% 100%);color:#16181B;padding-bottom:13px}
+.b160{background:linear-gradient(#16181B 0 24%,#C8102E 24% 76%,#C0C4C8 76% 88%,#FFFFFF 88% 100%);color:#FFFFFF;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:10px}.brand svg{flex:none}
+.brand-txt{display:flex;flex-direction:column;gap:2px;line-height:1.2}.brand-txt b{font-weight:600;color:var(--ink)}.brand-txt span{color:var(--muted);font-size:10px}
+/* entrada */
+.conf{position:absolute;top:-30px;animation-name:conf;animation-timing-function:linear;animation-fill-mode:both}
+@keyframes conf{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(var(--sx),25vh) rotate(calc(var(--r)*.25))}50%{transform:translate(calc(var(--sx)*-1),50vh) rotate(calc(var(--r)*.5))}75%{transform:translate(var(--sx),75vh) rotate(calc(var(--r)*.75))}100%{transform:translate(0,calc(100vh + 60px)) rotate(var(--r))}}
+.capfall{position:absolute;top:-70px;animation-name:capfall;animation-timing-function:cubic-bezier(.4,.1,.7,.9);animation-fill-mode:both}
+@keyframes capfall{0%{transform:translate(0,0) rotate(0)}30%{transform:translate(var(--sx),30vh) rotate(calc(var(--r)*.3))}65%{transform:translate(calc(var(--sx)*-1),65vh) rotate(calc(var(--r)*.65))}100%{transform:translate(0,calc(100vh + 120px)) rotate(var(--r))}}
 .row{display:flex;gap:14px;padding:14px 16px}
 .ico{flex:none;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
 /* lluvia y huevo gigante */
@@ -113,14 +130,15 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
  .tail>.box{margin-top:66px!important}
  .col>:first-child{margin-top:40px!important}
 }
-@media (prefers-reduced-motion:reduce){.shake{animation:none}.egg{animation-duration:.01s}.going .splat{animation:none}}
+@media (prefers-reduced-motion:reduce){#fx .conf,#fx .capfall{display:none}.shake{animation:none}.egg{animation-duration:.01s}.going .splat{animation:none}}
 </style>
 </head>
 <body>
 <main class="sheet">
 
 <div class="topbar label" style="letter-spacing:.08em">
-<span>Plano N° 01 · Hoja 1/1</span>
+<span class="brand"><svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true"><rect x="2" y="2" width="60" height="60" fill="#FFC21A" stroke="#16181B" stroke-width="3"/><path d="M32 19 C43 19 48 35 48 42 C48 52 41 58 32 58 C23 58 16 52 16 42 C16 35 21 19 32 19Z" fill="#FFFDF6" stroke="#16181B" stroke-width="3"/><path d="M22 17 L22 24 Q32 29.5 42 24 L42 17 Z" fill="#16181B"/><path d="M32 6 L55 15 L32 24 L9 15 Z" fill="#16181B"/><path d="M32 15 L49 18 L49 29" stroke="#F26B1D" stroke-width="2.4" fill="none"/><rect x="46.5" y="28" width="5" height="8" rx="1" fill="#F26B1D"/><path d="M26 40 C26 36 28 33 31 32" stroke="#16181B" stroke-width="1.6" fill="none" opacity=".35"/></svg>
+<span class="brand-txt"><b>T.O. · D.I.</b><span>Plano N° 01 · Hoja 1/1</span></span></span>
 <span>FADU · UBA</span>
 </div>
 
@@ -212,8 +230,8 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <svg class="splat s4" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><use href="#splatshape"/><circle cx="31" cy="33" r="9" fill="#FFC21A"/></svg>
 <div style="font-size:26px;line-height:1.05;font-weight:900;font-stretch:75%;text-transform:uppercase">¿Venís el jueves 3?</div>
 <div class="namefield when-not-block">
-<label for="nombre" class="label" style="display:block;text-align:left;margin-bottom:6px">Tu nombre</label>
-<input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="60" placeholder="Nombre y apellido" enterkeyhint="done">
+<label for="nombre" style="display:block;text-align:left;margin-bottom:8px;font-size:14px;line-height:1.35;font-weight:600">Escribí tu nombre, tocá el botón y andá practicando 🥚</label>
+<input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="60" placeholder="Nombre/apodo" enterkeyhint="done">
 <div id="nameerr" class="mono" role="alert" style="display:none;text-align:left;font-size:12px;margin-top:6px;color:#B3261E">Escribí tu nombre para confirmar.</div>
 </div>
 <div style="position:relative;width:100%;display:flex;justify-content:center">
@@ -227,7 +245,6 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <div style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:700"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="#16181B" stroke-width="2.2" stroke-linecap="square"/></svg><span>Asistencia confirmada<span id="who"></span>. Te espero.</span></div>
 <div class="mono" style="font-size:12px;color:var(--muted)">Huevos lanzados: <span id="count">0</span></div>
 </div>
-<div class="when-not mono" style="font-size:12px;color:var(--muted)">Escribí tu nombre y tocá el botón. Vas a practicar.</div>
 </div>
 </section>
 
@@ -331,7 +348,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <div class="row" style="border-bottom:1.5px solid var(--ink)">
 <div class="ico">CO</div>
 <div><div style="font-size:16px;font-weight:800">Colectivo</div>
-<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><span class="chip">28</span><span class="chip">33</span><span class="chip">34</span><span class="chip">37</span><span class="chip">42</span><span class="chip">45</span><span class="chip">107</span><span class="chip">160</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px"><span class="chip bus b28">28</span><span class="chip bus b33">33</span><span class="chip bus b34">34</span><span class="chip bus b37">37</span><span class="chip bus b42">42</span><span class="chip bus b45">45</span><span class="chip bus b107">107</span><span class="chip bus b160">160</span></div>
 <div style="font-size:13px;line-height:1.4;margin-top:8px;color:var(--muted)">Paran sobre la calle Ciudad Universitaria, frente a los pabellones.</div></div>
 </div>
 <div class="row">
@@ -409,6 +426,20 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
     setTimeout(function(){sheet.classList.remove('shake');},1400);
     return 1;
   }
+  // animación de entrada: birretes y confeti
+  (function(){
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
+    var CAP='<svg viewBox="0 0 100 70" width="100%" height="100%"><path d="M26 30 L26 50 Q50 62 74 50 L74 30 Z" fill="#23262B" stroke="#16181B" stroke-width="1.2"/><path d="M50 6 L98 24 L50 42 L2 24 Z" fill="#16181B"/><path d="M50 9 L91 24 L50 39 L9 24 Z" fill="none" stroke="#3A3E45" stroke-width=".8"/><path d="M50 24 L86 30 L86 50" fill="none" stroke="#FFC21A" stroke-width="2.4"/><rect x="82" y="48" width="8" height="14" rx="1.5" fill="#FFC21A" stroke="#16181B" stroke-width=".6"/><circle cx="50" cy="24" r="2.6" fill="#FFC21A"/></svg>';
+    var colors=['#FFC21A','#F26B1D','#2457D6','#16181B','#FFFDF6','#6CC04A'];
+    for(var i=0;i<70;i++){
+      var w=Math.round(r(6,11)),h=Math.round(r(10,18)),c=colors[i%colors.length];
+      add(fx,'conf','','left:'+r(0,100).toFixed(1)+'vw;width:'+w+'px;height:'+h+'px;background:'+c+';border:'+(c==='#FFFDF6'?'1px solid #16181B':'0')+';animation-duration:'+r(2.6,4.2).toFixed(2)+'s;animation-delay:'+r(0,1.4).toFixed(2)+'s;--sx:'+Math.round(r(-40,40))+'px;--r:'+Math.round(r(-720,720))+'deg',6000);
+    }
+    for(var j=0;j<12;j++){
+      var cw=Math.round(r(48,86));
+      add(fx,'capfall',CAP,'left:'+r(-4,92).toFixed(1)+'vw;width:'+cw+'px;height:'+Math.round(cw*.7)+'px;animation-duration:'+r(2.8,4.4).toFixed(2)+'s;animation-delay:'+r(0,1.2).toFixed(2)+'s;--sx:'+Math.round(r(-60,60))+'px;--r:'+Math.round(r(-260,260))+'deg',6200);
+    }
+  })();
   var input=document.getElementById('nombre'),err=document.getElementById('nameerr'),who=document.getElementById('who'),
       SHEET_URL=(window.RECIBIDA_CONFIG&&window.RECIBIDA_CONFIG.sheetUrl)||'',confirmed=false;
   function store(k,v){try{if(v===undefined){return localStorage.getItem(k);}localStorage.setItem(k,v);}catch(e){return null;}}
