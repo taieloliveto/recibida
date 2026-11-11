@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Me recibo · Taiel Oliveto · Jueves 3/12</title>
+<meta name="description" content="Jueves 3/12 · 19 h acto · 21 h huevada · Pabellón III, Ciudad Universitaria">
+<meta property="og:title" content="Me recibo · Jueves 3/12">
+<meta property="og:description" content="19 h acto · ~21 h huevada · Pabellón III, FADU, Ciudad Universitaria">
+<meta property="og:image" content="img/prototipo.png">
+<meta name="theme-color" content="#F1EFE8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#16181B;--paper:#F1EFE8;--white:#FFFDF6;--yolk:#FFC21A;--accent:#F26B1D;--muted:#3B3E43;--blue:#2457D6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:'Archivo',system-ui,sans-serif;background-color:#E4E1D8}
+.sheet{position:relative;max-width:420px;margin:0 auto;overflow:hidden;background-color:var(--paper);background-image:linear-gradient(rgba(22,24,27,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,24,27,.06) 1px,transparent 1px),linear-gradient(rgba(22,24,27,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(22,24,27,.035) 1px,transparent 1px);background-size:40px 40px,40px 40px,8px 8px,8px 8px;padding-bottom:40px;min-height:100vh}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.sec{margin:40px 24px 0}
+.box{border:2px solid var(--ink)}
+svg{display:block}
+a{color:var(--ink)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1.5px solid var(--ink);background:var(--paper)}
+h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:68%;letter-spacing:-.02em;text-transform:uppercase}
+/* foto */
+.callout{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.35;text-transform:uppercase;letter-spacing:.05em}
+/* rótulo */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cell{padding:14px 16px}
+.big{white-space:nowrap;font-size:34px;line-height:1;font-weight:800;font-stretch:80%;margin-top:6px}
+/* botones */
+.press{transition:transform .08s ease,box-shadow .08s ease;-webkit-tap-highlight-color:transparent}
+.press:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)!important}
+.press:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.rsvp-btn{position:relative;z-index:5;min-height:60px;width:100%;max-width:290px;padding:14px 20px;border:2px solid var(--ink);background:var(--accent);color:var(--ink);font-family:'Archivo',sans-serif;font-size:20px;font-weight:900;font-stretch:85%;letter-spacing:.02em;text-transform:uppercase;box-shadow:5px 5px 0 var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
+.linkbtn{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;box-shadow:4px 4px 0 var(--ink)}
+/* huevos */
+#eggzone{position:absolute;left:50%;top:50%;width:0;height:0;z-index:20;pointer-events:none}
+.egg{position:absolute;left:0;top:0;width:30px;height:38px;animation-duration:1.7s;animation-timing-function:cubic-bezier(.25,.6,.4,1);animation-fill-mode:both}
+.d0{animation-delay:0ms}.d1{animation-delay:90ms}.d2{animation-delay:180ms}.d3{animation-delay:270ms}
+.t0{animation-name:t0}.t1{animation-name:t1}.t2{animation-name:t2}.t3{animation-name:t3}.t4{animation-name:t4}.t5{animation-name:t5}.t6{animation-name:t6}.t7{animation-name:t7}.t8{animation-name:t8}.t9{animation-name:t9}
+@keyframes t0{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(-150px,-230px) rotate(-190deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(-200px,260px) rotate(-380deg);opacity:0}}
+@keyframes t1{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(-90px,-300px) rotate(150deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(-120px,300px) rotate(300deg);opacity:0}}
+@keyframes t2{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(-30px,-340px) rotate(-130deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(-40px,320px) rotate(-260deg);opacity:0}}
+@keyframes t3{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(40px,-320px) rotate(170deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(55px,310px) rotate(340deg);opacity:0}}
+@keyframes t4{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(110px,-280px) rotate(-150deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(150px,290px) rotate(-300deg);opacity:0}}
+@keyframes t5{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(160px,-200px) rotate(210deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(210px,270px) rotate(420deg);opacity:0}}
+@keyframes t6{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(-170px,-130px) rotate(130deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(-230px,240px) rotate(260deg);opacity:0}}
+@keyframes t7{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(180px,-120px) rotate(-210deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(240px,250px) rotate(-420deg);opacity:0}}
+@keyframes t8{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(-60px,-250px) rotate(250deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(-150px,280px) rotate(500deg);opacity:0}}
+@keyframes t9{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}8%{opacity:1}45%{transform:translate(-50%,-50%) translate(70px,-240px) rotate(-250deg)}88%{opacity:1}100%{transform:translate(-50%,-50%) translate(130px,300px) rotate(-500deg);opacity:0}}
+.splat{position:absolute;pointer-events:none;display:none}
+.going .splat{display:block;animation:splat .35s cubic-bezier(.3,1.6,.5,1) both}
+.s0{left:-14px;top:-18px;animation-delay:.55s!important}.s1{right:-10px;top:24px;animation-delay:.7s!important}
+.s2{left:38%;bottom:-22px;animation-delay:.8s!important}.s3{right:22%;top:-24px;animation-delay:.62s!important}.s4{left:-18px;bottom:30px;animation-delay:.9s!important}
+@keyframes splat{0%{transform:scale(0) rotate(0);opacity:0}100%{transform:scale(1) rotate(25deg);opacity:1}}
+.when-going{display:none}.going .when-going{display:flex}.going .when-not{display:none}
+.chip{padding:3px 8px;border:1.5px solid var(--ink);background:var(--white);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
+.row{display:flex;gap:14px;padding:14px 16px}
+.ico{flex:none;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+@media (prefers-reduced-motion:reduce){.egg{animation-duration:.01s}.going .splat{animation:none}}
+</style>
+</head>
+<body>
+<main class="sheet">
+
+<div class="topbar label" style="letter-spacing:.08em">
+<span>Plano N° 01 · Hoja 1/1</span>
+<span>FADU · UBA</span>
+</div>
+
+<!-- Hero -->
+<section style="padding:30px 24px 0">
+<div class="label" style="display:flex;align-items:center;gap:8px;font-size:12px">
+<span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
+<span>Proyecto final · Entrega definitiva</span>
+</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:18px">
+<h1 style="margin:0;font-size:100px;line-height:.85">Me<br>re<br>ci<br>bo</h1>
+<img src="img/prototipo.png" alt="Taiel de chico, disfrazado con chaleco amarillo y botas de lluvia, con un birrete de graduación" width="168" height="357" style="flex:none;width:168px;height:357px;display:block">
+</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px;gap:12px">
+<div class="label">Fig. 1 · Prototipo v0.1</div>
+<div class="callout" style="position:static;text-align:right;width:96px">↑ Botas aptas huevada</div>
+</div>
+</section>
+
+<section style="padding:22px 24px 0">
+<p style="margin:0;font-size:20px;line-height:1.25;font-weight:500">Taiel Oliveto, <span style="font-weight:800">Diseñador Industrial.</span></p>
+<p style="margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--muted);max-width:330px">Después de maquetas, entregas y noches sin dormir llegó el día. ¡Te espero para el acto y/o la huevada!</p>
+</section>
+
+<!-- Dibujo técnico -->
+<figure class="box" style="margin:22px 24px 0;padding:0;border-width:1.5px;background:rgba(241,239,232,.85)">
+<svg viewBox="0 0 352 250" width="100%" role="img" aria-label="Dibujo técnico de un huevo: vista frontal acotada y corte con yema">
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#16181B" stroke-width=".7"/></pattern></defs>
+<g fill="none" stroke="#16181B" stroke-width="1">
+<line x1="100" y1="22" x2="100" y2="214" stroke-dasharray="14 3 2 3" stroke-width=".8"/>
+<line x1="38" y1="132" x2="162" y2="132" stroke-dasharray="14 3 2 3" stroke-width=".8"/>
+<path d="M100 54 C130 54 145 106 145 131 C145 161 125 186 100 186 C75 186 55 161 55 131 C55 106 70 54 100 54 Z" stroke-width="2.2" fill="#FFFDF6"/>
+<line x1="55" y1="196" x2="55" y2="214" stroke-width=".8"/><line x1="145" y1="196" x2="145" y2="214" stroke-width=".8"/><line x1="55" y1="208" x2="145" y2="208" stroke-width=".8"/>
+<path d="M55 208 l7 -2.5 v5 z M145 208 l-7 -2.5 v5 z" fill="#16181B" stroke="none"/>
+<line x1="152" y1="54" x2="170" y2="54" stroke-width=".8"/><line x1="152" y1="186" x2="170" y2="186" stroke-width=".8"/><line x1="164" y1="54" x2="164" y2="186" stroke-width=".8"/>
+<path d="M164 54 l-2.5 7 h5 z M164 186 l-2.5 -7 h5 z" fill="#16181B" stroke="none"/>
+<line x1="236" y1="22" x2="236" y2="214" stroke-dasharray="14 3 2 3" stroke-width=".8"/>
+<path d="M236 74 C259 74 271 113 271 133 C271 157 255 176 236 176 C217 176 201 157 201 133 C201 113 213 74 236 74 Z" stroke-width="2.2" fill="#FFFDF6"/>
+<path d="M236 74 C259 74 271 113 271 133 C271 157 255 176 236 176 C217 176 201 157 201 133 C201 113 213 74 236 74 Z" stroke="none" fill="url(#hatch)" opacity=".5"/>
+<circle cx="236" cy="138" r="21" fill="#FFC21A" stroke-width="1.6"/>
+<line x1="186" y1="40" x2="186" y2="56" stroke-width="2"/><line x1="286" y1="40" x2="286" y2="56" stroke-width="2"/>
+</g>
+<g font-family="IBM Plex Mono, monospace" font-size="10" fill="#16181B">
+<text x="100" y="226" text-anchor="middle">Ø 45</text>
+<text x="176" y="124" transform="rotate(90 176 124)">62</text>
+<text x="180" y="36">A</text><text x="290" y="36">A</text>
+<text x="100" y="14" text-anchor="middle" font-weight="600">VISTA FRONTAL</text>
+<text x="236" y="14" text-anchor="middle" font-weight="600">CORTE A-A</text>
+<text x="236" y="198" text-anchor="middle">Yema · Ø 28</text>
+<text x="344" y="244" text-anchor="end" opacity=".7">Esc. 1:1 · cotas en mm</text>
+</g>
+</svg>
+</figure>
+
+<!-- Datos -->
+<div class="box grid2" style="margin:28px 24px 0;background:var(--paper)">
+<div style="grid-column:span 2;padding:16px 16px 14px;border-bottom:1.5px solid var(--ink)">
+<div class="label" style="color:var(--muted)">Fecha</div>
+<div style="font-size:40px;line-height:1;font-weight:900;font-stretch:75%;text-transform:uppercase;margin-top:6px">Jueves 03.12</div>
+<div class="mono" style="font-size:13px;margin-top:6px">Diciembre 2026</div>
+</div>
+<div class="cell" style="border-right:1.5px solid var(--ink)">
+<div class="label" style="color:var(--muted)">01 · Acto</div>
+<div class="big">19:00 h</div>
+<div style="font-size:13px;line-height:1.35;margin-top:6px">Me entregan las notas. Puntualidad, por favor.</div>
+</div>
+<div class="cell" style="background:var(--yolk)">
+<div class="label">02 · Huevada</div>
+<div class="big">~21:00 h</div>
+<div style="font-size:13px;line-height:1.35;margin-top:6px">Huevos, harina y todo lo que encuentres.</div>
+</div>
+<div style="grid-column:span 2;padding:14px 16px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:flex-end;gap:12px">
+<div>
+<div class="label" style="color:var(--muted)">Lugar</div>
+<div style="font-size:18px;font-weight:800;margin-top:4px">Pabellón III · FADU</div>
+<div style="font-size:13px;margin-top:2px">Ciudad Universitaria, Núñez · CABA</div>
+</div>
+<svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="#16181B" stroke-width="1.5"/><path d="M18 5 L23 20 L18 17 L13 20 Z" fill="#16181B"/><text x="18" y="31" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#16181B">N</text></svg>
+</div>
+</div>
+
+<!-- Confirmación -->
+<section class="sec" style="margin-top:36px">
+<div class="label" style="margin-bottom:10px">03 · Confirmación</div>
+<div id="rsvp" class="box" style="position:relative;background:var(--white);padding:22px 18px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<svg class="splat s0" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><use href="#splatshape"/><circle cx="32" cy="32" r="10" fill="#FFC21A"/></svg>
+<svg class="splat s1" viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><use href="#splatshape"/><circle cx="30" cy="34" r="9" fill="#FFC21A"/></svg>
+<svg class="splat s2" viewBox="0 0 64 64" width="60" height="60" aria-hidden="true"><use href="#splatshape"/><circle cx="33" cy="30" r="11" fill="#FFC21A"/></svg>
+<svg class="splat s3" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><use href="#splatshape"/><circle cx="32" cy="32" r="10" fill="#FFC21A"/></svg>
+<svg class="splat s4" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><use href="#splatshape"/><circle cx="31" cy="33" r="9" fill="#FFC21A"/></svg>
+<div style="font-size:26px;line-height:1.05;font-weight:900;font-stretch:75%;text-transform:uppercase">¿Venís el jueves 3?</div>
+<div style="position:relative;width:100%;display:flex;justify-content:center">
+<button id="btn" class="press rsvp-btn" type="button">
+<svg width="22" height="26" viewBox="0 0 30 38" aria-hidden="true"><path d="M15 1C23 1 29 14 29 23C29 32 23 37 15 37C7 37 1 32 1 23C1 14 7 1 15 1Z" fill="#FFFDF6" stroke="#16181B" stroke-width="2.4"/></svg>
+<span id="btnlabel">Confirmo: voy a ir</span>
+</button>
+<div id="eggzone" aria-hidden="true"></div>
+</div>
+<div class="when-going" style="flex-direction:column;align-items:center;gap:4px" aria-live="polite">
+<div style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:700"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="#16181B" stroke-width="2.2" stroke-linecap="square"/></svg>Asistencia confirmada. Te espero.</div>
+<div class="mono" style="font-size:12px;color:var(--muted)">Huevos lanzados: <span id="count">0</span></div>
+</div>
+<div class="when-not mono" style="font-size:12px;color:var(--muted)">Tocá el botón. Vas a practicar.</div>
+</div>
+</section>
+
+<!-- Advertencia -->
+<div class="box" style="margin:40px 24px 0;background:var(--yolk)">
+<div style="height:18px;border-bottom:2px solid var(--ink);background-image:repeating-linear-gradient(-45deg,#16181B 0 10px,#FFC21A 10px 20px)"></div>
+<div style="padding:16px 16px 18px;display:flex;gap:14px;align-items:flex-start">
+<svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true" style="flex:none"><path d="M20 2 L38 34 H2 Z" fill="#FFC21A" stroke="#16181B" stroke-width="2.4" stroke-linejoin="round"/><rect x="18.5" y="12" width="3" height="12" fill="#16181B"/><rect x="18.5" y="27" width="3" height="3" fill="#16181B"/></svg>
+<div>
+<div style="font-size:22px;line-height:1.05;font-weight:900;font-stretch:78%;text-transform:uppercase">Llegá con tiempo</div>
+<p style="margin:8px 0 0;font-size:14px;line-height:1.45">Los estacionamientos de Ciudad Universitaria se colapsan en las recibidas. Si venís en auto, calculá margen extra para dar vueltas.</p>
+</div>
+</div>
+</div>
+
+<!-- Plano de llegada -->
+<section class="sec">
+<div class="label" style="margin-bottom:10px">04 · Plano de llegada</div>
+<figure class="box" style="margin:0;background:#FFFDF6">
+<svg viewBox="0 0 348 372" width="100%" role="img" aria-label="Plano de Ciudad Universitaria con el norte hacia arriba: el Pabellón III (FADU) arriba a la izquierda marcado como destino, el Pabellón II (Exactas) abajo a la derecha, el Estacionamiento Exactas a la derecha del Pabellón II y la calle Ciudad Universitaria al sur, con paradas de colectivo.">
+<defs>
+<pattern id="mod" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M8 0 V8 M0 8 H8" fill="none" stroke="#16181B" stroke-width=".5" opacity=".45"/></pattern>
+<pattern id="lot" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-56)"><path d="M0 0 H9" fill="none" stroke="#FFFDF6" stroke-width=".9"/></pattern>
+<clipPath id="mapclip"><rect width="348" height="372"/></clipPath>
+</defs>
+<g clip-path="url(#mapclip)">
+<rect width="348" height="372" fill="#E3EFDC"/>
+<path d="M0 290 L120 300 L200 372 L0 372 Z" fill="#CFE6C6"/>
+<path d="M95 34 L348 190" fill="none" stroke="#9DBF92" stroke-width="1"/>
+<path d="M143 153 L144 223 M107 190 L182 160" fill="none" stroke="#9DBF92" stroke-width="1"/>
+<!-- estacionamiento -->
+<path d="M311 188 L360 214 L360 340 L230 318 Z" fill="#7C8088" stroke="#16181B" stroke-width="1.2"/>
+<path d="M311 188 L360 214 L360 340 L230 318 Z" fill="url(#lot)"/>
+<!-- caminos internos -->
+<path d="M140 134 L182 150 Q190 155 186 164 L128 262" fill="none" stroke="#16181B" stroke-width="6.5"/>
+<path d="M140 134 L182 150 Q190 155 186 164 L128 262" fill="none" stroke="#FFFDF6" stroke-width="4"/>
+<path d="M109 178 L98 209 L87 232" fill="none" stroke="#16181B" stroke-width="5"/>
+<path d="M109 178 L98 209 L87 232" fill="none" stroke="#FFFDF6" stroke-width="3"/>
+<!-- calles -->
+<path d="M-10 262 L101 293 L151 316 L213 337 L300 352 L360 340" fill="none" stroke="#16181B" stroke-width="11"/>
+<path d="M-10 262 L101 293 L151 316 L213 337 L300 352 L360 340" fill="none" stroke="#FFFDF6" stroke-width="8"/>
+<path d="M-10 192 L101 237 L174 288 L207 313 L255 332" fill="none" stroke="#16181B" stroke-width="12"/>
+<path d="M-10 192 L101 237 L174 288 L207 313 L255 332" fill="none" stroke="#FFFDF6" stroke-width="9"/>
+<text x="112" y="249" font-family="IBM Plex Mono, monospace" font-size="6.6" font-weight="600" fill="#16181B" transform="rotate(35 112 249)">C. CDAD. UNIVERSITARIA</text>
+<!-- anexo y kiosco -->
+<path d="M163 90 L224 127 L213 138 L157 103 Z" fill="#D6D6DB" stroke="#16181B" stroke-width=".9"/>
+<path d="M104 236 L114 242 L120 233 L110 227 Z" fill="#F7F1E6" stroke="#16181B" stroke-width=".9"/>
+<!-- Pabellón II -->
+<path d="M235 136 L294 176 L210 302 L151 261 Z" fill="#DAD6CB" stroke="#16181B" stroke-width="1.6"/>
+<path d="M235 136 L294 176 L210 302 L151 261 Z" fill="url(#mod)" opacity=".7"/>
+<text x="222" y="216" font-family="IBM Plex Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle" fill="#16181B">PAB. II</text>
+<text x="222" y="228" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="middle" fill="#16181B">EXACTAS</text>
+<!-- Pabellón III -->
+<path d="M94 43 L156 82 L72 208 L10 169 Z" fill="#F26B1D" stroke="#16181B" stroke-width="2.2"/>
+<path d="M94 43 L156 82 L72 208 L10 169 Z" fill="url(#mod)"/>
+<rect x="56" y="112" width="58" height="34" fill="#FFFDF6" stroke="#16181B" stroke-width="1.2"/>
+<text x="85" y="128" font-family="Archivo, sans-serif" font-weight="900" font-size="13" text-anchor="middle" fill="#16181B">FADU</text>
+<text x="85" y="140" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="middle" fill="#16181B">PAB. III</text>
+<!-- marcador -->
+<path d="M94 43 V33" stroke="#16181B" stroke-width="1.2"/>
+<rect x="60" y="8" width="68" height="20" fill="#16181B"/>
+<path d="M89 28 L94 34 L99 28 Z" fill="#16181B"/>
+<text x="94" y="22" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#FFC21A">ES ACÁ</text>
+<!-- P y colectivos -->
+<g font-family="Archivo, sans-serif" font-weight="900" font-size="11" text-anchor="middle">
+<rect x="292" y="244" width="20" height="20" fill="#2457D6" stroke="#16181B" stroke-width="1.2"/><text x="302" y="258" fill="#FFFFFF">P</text>
+</g>
+<g font-family="IBM Plex Mono, monospace" font-size="6.5" font-weight="600" text-anchor="middle">
+<rect x="143" y="320" width="20" height="12" rx="2" fill="#FFFDF6" stroke="#16181B" stroke-width="1"/><text x="153" y="328.5" fill="#16181B">BUS</text>
+<rect x="170" y="340" width="20" height="12" rx="2" fill="#FFFDF6" stroke="#16181B" stroke-width="1"/><text x="180" y="348.5" fill="#16181B">BUS</text>
+<rect x="14" y="271" width="20" height="12" rx="2" fill="#FFFDF6" stroke="#16181B" stroke-width="1"/><text x="24" y="279.5" fill="#16181B">BUS</text>
+</g>
+<text x="264" y="236" font-family="IBM Plex Mono, monospace" font-size="6.6" fill="#16181B" transform="rotate(-56 264 236)">ESTAC. EXACTAS</text>
+<!-- referencias fuera del plano -->
+<text x="340" y="20" font-family="IBM Plex Mono, monospace" font-size="7" font-weight="600" text-anchor="end" fill="#16181B">RESERVA · RÍO ▸</text>
+<text x="8" y="365" font-family="IBM Plex Mono, monospace" font-size="7" font-weight="600" fill="#16181B">◂ TREN · AV. LUGONES</text>
+<g transform="translate(322 52)"><circle r="11" fill="#FFFDF6" stroke="#16181B" stroke-width="1.2"/><path d="M0 -8 L3.5 3 L0 1 L-3.5 3 Z" fill="#16181B"/></g>
+<text x="340" y="366" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="end" fill="#16181B">PLANO APROXIMADO</text>
+</g>
+</svg>
+</figure>
+<div class="grid2" style="gap:10px;margin-top:12px">
+<a class="press linkbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=FADU+Pabell%C3%B3n+III+Ciudad+Universitaria+Buenos+Aires" target="_blank" rel="noopener" style="background:var(--ink);color:var(--white)">
+<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 C11 1 13 3.3 13 6 C13 9.5 8 15 8 15 C8 15 3 9.5 3 6 C3 3.3 5 1 8 1 Z" fill="none" stroke="#FFFDF6" stroke-width="1.6"/><circle cx="8" cy="6" r="1.8" fill="#FFFDF6"/></svg>Cómo llegar</a>
+<a class="press linkbtn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Recibida%20de%20Taiel&amp;dates=20261203T220000Z/20261204T030000Z&amp;location=Pabell%C3%B3n%20III%2C%20FADU%2C%20Ciudad%20Universitaria&amp;details=19%20h%20acto%20%C2%B7%2021%20h%20aprox.%20huevada.%20Lleg%C3%A1%20con%20tiempo%3A%20se%20colapsan%20los%20estacionamientos." target="_blank" rel="noopener" style="background:var(--white);color:var(--ink)">
+<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11.5" fill="none" stroke="#16181B" stroke-width="1.6"/><line x1="1.5" y1="6.5" x2="14.5" y2="6.5" stroke="#16181B" stroke-width="1.6"/><line x1="5" y1="1" x2="5" y2="4" stroke="#16181B" stroke-width="1.6"/><line x1="11" y1="1" x2="11" y2="4" stroke="#16181B" stroke-width="1.6"/></svg>Agendar</a>
+</div>
+</section>
+
+<!-- Cómo llegar -->
+<section class="sec">
+<div class="label" style="margin-bottom:10px">05 · Cómo llegar</div>
+<div class="box" style="background:var(--paper)">
+<div class="row" style="border-bottom:1.5px solid var(--ink)">
+<div class="ico">TR</div>
+<div><div style="font-size:16px;font-weight:800">Tren Belgrano Norte</div>
+<div style="font-size:14px;line-height:1.4;margin-top:2px">Bajate en la estación Ciudad Universitaria y caminá hasta el Pabellón III.</div></div>
+</div>
+<div class="row" style="border-bottom:1.5px solid var(--ink)">
+<div class="ico">CO</div>
+<div><div style="font-size:16px;font-weight:800">Colectivo</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><span class="chip">28</span><span class="chip">33</span><span class="chip">34</span><span class="chip">37</span><span class="chip">42</span><span class="chip">45</span><span class="chip">107</span><span class="chip">160</span></div>
+<div style="font-size:13px;line-height:1.4;margin-top:8px;color:var(--muted)">Paran sobre la calle Ciudad Universitaria, frente a los pabellones.</div></div>
+</div>
+<div class="row">
+<div class="ico">AU</div>
+<div><div style="font-size:16px;font-weight:800">Auto</div>
+<div style="font-size:14px;line-height:1.4;margin-top:2px">Por Av. Lugones/Cantilo o Costanera. Ojo que el estacionamiento se llena.</div></div>
+</div>
+</div>
+</section>
+
+<!-- Foto final -->
+<section class="sec" style="margin-top:44px">
+<div class="label" style="margin-bottom:14px">06 · Antecedentes</div>
+<figure style="position:relative;margin:0;border:2px solid var(--ink);background:var(--white);padding:10px;transform:rotate(-1.5deg);box-shadow:5px 5px 0 rgba(22,24,27,.18)">
+<div aria-hidden="true" style="position:absolute;left:22px;top:-12px;width:74px;height:22px;background:rgba(255,194,26,.75);transform:rotate(-8deg)"></div>
+<div aria-hidden="true" style="position:absolute;right:22px;top:-10px;width:74px;height:22px;background:rgba(255,194,26,.75);transform:rotate(7deg)"></div>
+<img src="img/piso.jpg" alt="Taiel de chico acostado en el piso con los brazos abiertos, al lado de un muñeco armado con su ropa" style="width:100%;height:auto;display:block;border:1px solid var(--ink)" width="704" height="523" loading="lazy">
+</figure>
+</section>
+
+<!-- Rótulo final -->
+<div class="box grid2 mono" style="margin:44px 24px 0;background:var(--paper);font-size:11px;text-transform:uppercase;letter-spacing:.06em">
+<div style="padding:10px 12px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)"><div style="color:var(--muted)">Dibujó</div><div style="font-weight:600;margin-top:3px;font-size:12px">T. Oliveto</div></div>
+<div style="padding:10px 12px;border-bottom:1.5px solid var(--ink)"><div style="color:var(--muted)">Carrera</div><div style="font-weight:600;margin-top:3px;font-size:12px">Diseño Industrial</div></div>
+<div style="padding:10px 12px;border-right:1.5px solid var(--ink)"><div style="color:var(--muted)">Aprobó</div><div style="font-weight:600;margin-top:3px;font-size:12px">FADU (por fin)</div></div>
+<div style="padding:10px 12px;background:var(--ink);color:var(--yolk)"><div>Estado</div><div style="font-weight:600;margin-top:3px;font-size:12px">Recibido ✓</div></div>
+</div>
+
+</main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<path id="splatshape" d="M30 4c8 0 10 9 17 8s12 3 11 11-6 9-4 16-4 14-13 13-10 6-17 2-15-1-16-9 2-11-1-17 3-13 11-14 9-10 12-10z" fill="#FFFDF6" stroke="#16181B" stroke-width="1.2"/>
+</defs>
+</svg>
+
+<script>
+(function(){
+  var btn=document.getElementById('btn'),label=document.getElementById('btnlabel'),zone=document.getElementById('eggzone'),
+      rsvp=document.getElementById('rsvp'),count=document.getElementById('count'),throws=0;
+  var EGG='<svg viewBox="0 0 30 38" width="30" height="38"><path d="M15 1C23 1 29 14 29 23C29 32 23 37 15 37C7 37 1 32 1 23C1 14 7 1 15 1Z" fill="#FFFDF6" stroke="#16181B" stroke-width="1.6"/><path d="M9 12 C10 9 12 7 14 6" fill="none" stroke="#16181B" stroke-width="1" opacity=".4"/></svg>';
+  btn.addEventListener('click',function(){
+    throws++;
+    rsvp.classList.add('going');
+    label.textContent='Tirar más huevos';
+    count.textContent=throws*14;
+    for(var i=0;i<14;i++){
+      var e=document.createElement('div');
+      e.className='egg t'+Math.floor(Math.random()*10)+' d'+Math.floor(Math.random()*4);
+      e.innerHTML=EGG;
+      zone.appendChild(e);
+      (function(el){setTimeout(function(){el.remove();},2300);})(e);
+    }
+    if(navigator.vibrate){navigator.vibrate(30);}
+  });
+})();
+</script>
+</body>
+</html>
