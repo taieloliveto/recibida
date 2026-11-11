@@ -477,7 +477,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
       input.blur();
     }
     var mode=fire(zone);
-    label.textContent=mode===1?'¿Más? Dale':'Tirar más huevos';
+    label.textContent=mode===1?'¿Querés más? Dale, cagón':'Tirar más huevos';
   });
   var btn2=document.getElementById('btn2'),zone2=document.getElementById('eggzone2'),counter=document.getElementById('counter');
   function fire(z){
@@ -493,7 +493,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
   }
   btn2.addEventListener('click',function(){
     var mode=fire(zone2);
-    btn2.textContent=mode===1?'¿Más? Dale':'Tirar más huevos (sin confirmar)';
+    btn2.textContent=mode===1?'¿Querés más? Dale, cagón':'Tirar más huevos';
   });
 })();
 </script>
