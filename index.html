@@ -31,12 +31,12 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 /* rótulo */
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .cell{padding:14px 16px}
-.big{white-space:nowrap;font-size:34px;line-height:1;font-weight:800;font-stretch:80%;margin-top:6px}
+.big{white-space:nowrap;font-size:clamp(26px,8.5vw,34px);line-height:1;font-weight:800;font-stretch:80%;margin-top:6px}
 /* botones */
 .press{transition:transform .08s ease,box-shadow .08s ease;-webkit-tap-highlight-color:transparent}
 .press:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)!important}
 .press:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.rsvp-btn{position:relative;z-index:5;min-height:60px;width:100%;max-width:290px;padding:14px 20px;border:2px solid var(--ink);background:var(--accent);color:var(--ink);font-family:'Archivo',sans-serif;font-size:20px;font-weight:900;font-stretch:85%;letter-spacing:.02em;text-transform:uppercase;box-shadow:5px 5px 0 var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
+.rsvp-btn{position:relative;z-index:5;min-height:60px;width:100%;max-width:290px;padding:14px 20px;border:2px solid var(--ink);background:var(--accent);color:var(--ink);font-family:'Archivo',sans-serif;font-size:clamp(16px,5.2vw,20px);font-weight:900;font-stretch:85%;letter-spacing:.02em;text-transform:uppercase;box-shadow:5px 5px 0 var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
 .linkbtn{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;box-shadow:4px 4px 0 var(--ink)}
 /* huevos */
 #eggzone{position:absolute;left:50%;top:50%;width:0;height:0;z-index:20;pointer-events:none}
@@ -62,6 +62,35 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 .chip{padding:3px 8px;border:1.5px solid var(--ink);background:var(--white);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
 .row{display:flex;gap:14px;padding:14px 16px}
 .ico{flex:none;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+/* responsive */
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:18px}
+.hero-title{margin:0;font-size:clamp(64px,25vw,100px);line-height:.85}
+.hero-img{flex:none;width:clamp(124px,42vw,168px);height:auto;display:block}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px;gap:12px}
+.intro{padding:22px 24px 0}
+@media (max-width:359px){.cell{padding:12px}.topbar{font-size:10px}.label{letter-spacing:.06em}}
+@media (min-width:640px) and (max-width:899px){
+ .sheet{max-width:600px}
+ .hero-title{font-size:132px}
+ .hero-img{width:220px}
+}
+@media (min-width:900px){
+ body{padding:40px 24px}
+ .sheet{max-width:1100px;min-height:0;border:2px solid var(--ink);box-shadow:10px 10px 0 rgba(22,24,27,.15);padding-bottom:56px}
+ .topbar{padding:16px 40px}
+ .hero{padding:44px 40px 0!important}
+ .hero-row{justify-content:flex-start;gap:56px;align-items:flex-end}
+ .hero-title{font-size:178px}
+ .hero-img{width:300px}
+ .hero-foot{max-width:none;justify-content:flex-start;gap:56px}
+ .hero-foot .label{width:auto}
+ .intro{padding:28px 40px 0;max-width:720px}
+ .intro p:first-child{font-size:26px!important}
+ .intro p:last-child{font-size:18px!important;max-width:560px!important}
+ .cols,.tail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px;padding:0 16px;align-items:start}
+ .tail{align-items:end}
+ .col>:first-child{margin-top:40px!important}
+}
 @media (prefers-reduced-motion:reduce){.egg{animation-duration:.01s}.going .splat{animation:none}}
 </style>
 </head>
@@ -74,26 +103,28 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 </div>
 
 <!-- Hero -->
-<section style="padding:30px 24px 0">
+<section class="hero" style="padding:30px 24px 0">
 <div class="label" style="display:flex;align-items:center;gap:8px;font-size:12px">
 <span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
 <span>Proyecto final · Entrega definitiva</span>
 </div>
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:18px">
-<h1 style="margin:0;font-size:100px;line-height:.85">Me<br>re<br>ci<br>bo</h1>
-<img src="img/prototipo.png" alt="Taiel de chico, disfrazado con chaleco amarillo y botas de lluvia, con un birrete de graduación" width="168" height="357" style="flex:none;width:168px;height:357px;display:block">
+<div class="hero-row">
+<h1 class="hero-title">Me<br>re<br>ci<br>bo</h1>
+<img src="img/prototipo.png" alt="Taiel de chico, disfrazado con chaleco amarillo y botas de lluvia, con un birrete de graduación" width="168" height="357" class="hero-img">
 </div>
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px;gap:12px">
+<div class="hero-foot">
 <div class="label">Fig. 1 · Prototipo v0.1</div>
 <div class="callout" style="position:static;text-align:right;width:96px">↑ Botas aptas huevada</div>
 </div>
 </section>
 
-<section style="padding:22px 24px 0">
+<section class="intro">
 <p style="margin:0;font-size:20px;line-height:1.25;font-weight:500">Taiel Oliveto, <span style="font-weight:800">Diseñador Industrial.</span></p>
 <p style="margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--muted);max-width:330px">Después de maquetas, entregas y noches sin dormir llegó el día. ¡Te espero para el acto y/o la huevada!</p>
 </section>
 
+<div class="cols">
+<div class="col">
 <!-- Dibujo técnico -->
 <figure class="box" style="margin:22px 24px 0;padding:0;border-width:1.5px;background:rgba(241,239,232,.85)">
 <svg viewBox="0 0 352 250" width="100%" role="img" aria-label="Dibujo técnico de un huevo: vista frontal acotada y corte con yema">
@@ -128,7 +159,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <div class="box grid2" style="margin:28px 24px 0;background:var(--paper)">
 <div style="grid-column:span 2;padding:16px 16px 14px;border-bottom:1.5px solid var(--ink)">
 <div class="label" style="color:var(--muted)">Fecha</div>
-<div style="font-size:40px;line-height:1;font-weight:900;font-stretch:75%;text-transform:uppercase;margin-top:6px">Jueves 03.12</div>
+<div style="font-size:clamp(30px,10.5vw,40px);line-height:1;font-weight:900;font-stretch:75%;text-transform:uppercase;margin-top:6px;white-space:nowrap">Jueves 03.12</div>
 <div class="mono" style="font-size:13px;margin-top:6px">Diciembre 2026</div>
 </div>
 <div class="cell" style="border-right:1.5px solid var(--ink)">
@@ -176,6 +207,8 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 </div>
 </section>
 
+</div>
+<div class="col">
 <!-- Advertencia -->
 <div class="box" style="margin:40px 24px 0;background:var(--yolk)">
 <div style="height:18px;border-bottom:2px solid var(--ink);background-image:repeating-linear-gradient(-45deg,#16181B 0 10px,#FFC21A 10px 20px)"></div>
@@ -285,6 +318,10 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 </div>
 </section>
 
+</div>
+</div>
+
+<div class="tail">
 <!-- Foto final -->
 <section class="sec" style="margin-top:44px">
 <div class="label" style="margin-bottom:14px">06 · Antecedentes</div>
@@ -303,6 +340,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <div style="padding:10px 12px;background:var(--ink);color:var(--yolk)"><div>Estado</div><div style="font-weight:600;margin-top:3px;font-size:12px">Recibido ✓</div></div>
 </div>
 
+</div>
 </main>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
