@@ -62,12 +62,27 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 .chip{padding:3px 8px;border:1.5px solid var(--ink);background:var(--white);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
 .row{display:flex;gap:14px;padding:14px 16px}
 .ico{flex:none;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+/* lluvia y huevo gigante */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.rain{position:absolute;top:-70px;animation-name:rain;animation-timing-function:cubic-bezier(.45,.05,.9,.6);animation-fill-mode:both}
+@keyframes rain{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(calc(100vh + 140px)) rotate(var(--r))}}
+.giant{position:absolute;left:50%;top:50%;width:min(56vw,260px);aspect-ratio:30/38;animation:giant .95s cubic-bezier(.3,1.4,.5,1) both}
+.giant svg,.bigsplat svg,.shell svg{width:100%;height:100%;display:block}
+@keyframes giant{0%{transform:translate(-50%,40vh) scale(.15) rotate(-20deg)}55%{transform:translate(-50%,-50%) scale(1) rotate(6deg)}64%{transform:translate(-52%,-50%) scale(1.04) rotate(-5deg)}72%{transform:translate(-48%,-50%) scale(1.07) rotate(5deg)}80%{transform:translate(-51%,-50%) scale(1.1) rotate(-3deg)}92%{transform:translate(-50%,-50%) scale(1.22);opacity:1}100%{transform:translate(-50%,-50%) scale(1.4);opacity:0}}
+.bigsplat{position:absolute;left:50%;top:50%;width:max(130vw,130vh);aspect-ratio:1;animation:bigsplat 3s .88s both}
+@keyframes bigsplat{0%{transform:translate(-50%,-50%) scale(0);opacity:1}9%{transform:translate(-50%,-50%) scale(1.06)}14%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1,1)}100%{transform:translate(-50%,calc(-50% + 140vh)) scale(.96,1.25);opacity:1}}
+.shell{position:absolute;left:50%;top:50%;width:46px;height:36px;animation:shell 1.3s .88s cubic-bezier(.2,.7,.4,1) both}
+@keyframes shell{0%{transform:translate(-50%,-50%) rotate(0) scale(.6);opacity:0}5%{opacity:1}60%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(var(--r)) scale(1)}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy) + 80vh)) rotate(calc(var(--r) * 2)) scale(1);opacity:1}}
+.shake{animation:shake .45s .85s both}
+@keyframes shake{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,4px)}40%{transform:translate(7px,-5px)}60%{transform:translate(-5px,3px)}80%{transform:translate(4px,-2px)}}
 /* responsive */
-.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:18px}
-.hero-title{margin:0;font-size:clamp(64px,25vw,100px);line-height:.85}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title img" "fig call" "intro intro";column-gap:8px;align-items:end;margin-top:18px}
+.hero-title{grid-area:title}.hero-img{grid-area:img}.hero-fig{grid-area:fig;margin-top:10px;align-self:start}.hero-call{grid-area:call;margin-top:10px;justify-self:end;align-self:start}.intro{grid-area:intro}
+.hero-title{margin:0;font-size:clamp(60px,24vw,100px);line-height:.86}
+.yel{color:var(--yolk);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--ink)}
+.t-desk{display:none}
 .hero-img{flex:none;width:clamp(124px,42vw,168px);height:auto;display:block}
-.hero-foot{display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px;gap:12px}
-.intro{padding:22px 24px 0}
+.intro{padding-top:22px}
 @media (max-width:359px){.cell{padding:12px}.topbar{font-size:10px}.label{letter-spacing:.06em}}
 @media (min-width:640px) and (max-width:899px){
  .sheet{max-width:600px}
@@ -79,19 +94,21 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
  .sheet{max-width:1100px;min-height:0;border:2px solid var(--ink);box-shadow:10px 10px 0 rgba(22,24,27,.15);padding-bottom:56px}
  .topbar{padding:16px 40px}
  .hero{padding:44px 40px 0!important}
- .hero-row{justify-content:flex-start;gap:56px;align-items:flex-end}
- .hero-title{font-size:178px}
- .hero-img{width:300px}
- .hero-foot{max-width:none;justify-content:flex-start;gap:56px}
- .hero-foot .label{width:auto}
- .intro{padding:28px 40px 0;max-width:720px}
+ .hero-grid{grid-template-columns:minmax(0,1fr) 250px;grid-template-areas:"title img" "intro img" "fig call";column-gap:48px;align-items:end}
+ .hero-title{font-size:150px;line-height:.88;align-self:end}
+ .t-mob{display:none}.t-desk{display:inline}
+ .yel{-webkit-text-stroke:3px var(--ink);text-shadow:7px 7px 0 var(--ink)}
+ .hero-left{flex:1 1 auto}
+ .hero-img{width:250px}
+ .intro{padding:28px 0 8px;max-width:620px;align-self:start}
  .intro p:first-child{font-size:26px!important}
  .intro p:last-child{font-size:18px!important;max-width:560px!important}
  .cols,.tail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px;padding:0 16px;align-items:start}
- .tail{align-items:end}
+ .tail{align-items:start}
+ .tail>.box{margin-top:66px!important}
  .col>:first-child{margin-top:40px!important}
 }
-@media (prefers-reduced-motion:reduce){.egg{animation-duration:.01s}.going .splat{animation:none}}
+@media (prefers-reduced-motion:reduce){.shake{animation:none}.egg{animation-duration:.01s}.going .splat{animation:none}}
 </style>
 </head>
 <body>
@@ -108,19 +125,16 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
 <span>Proyecto final · Entrega definitiva</span>
 </div>
-<div class="hero-row">
-<h1 class="hero-title">Me<br>re<br>ci<br>bo</h1>
+<div class="hero-grid">
+<h1 class="hero-title" aria-label="Me recibo."><span class="t-mob" aria-hidden="true">Me<br><span class="yel">Re-<br>ci-<br>bo.</span></span><span class="t-desk" aria-hidden="true">Me<br><span class="yel">recibo.</span></span></h1>
 <img src="img/prototipo.png" alt="Taiel de chico, disfrazado con chaleco amarillo y botas de lluvia, con un birrete de graduación" width="168" height="357" class="hero-img">
-</div>
-<div class="hero-foot">
-<div class="label">Fig. 1 · Prototipo v0.1</div>
-<div class="callout" style="position:static;text-align:right;width:96px">↑ Botas aptas huevada</div>
-</div>
-</section>
-
-<section class="intro">
+<div class="label hero-fig">Fig. 1 · Prototipo v0.1</div>
+<div class="callout hero-call" style="position:static;text-align:right;width:96px">↑ Botas aptas huevada</div>
+<div class="intro">
 <p style="margin:0;font-size:20px;line-height:1.25;font-weight:500">Taiel Oliveto, <span style="font-weight:800">Diseñador Industrial.</span></p>
 <p style="margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--muted);max-width:330px">Después de maquetas, entregas y noches sin dormir llegó el día. ¡Te espero para el acto y/o la huevada!</p>
+</div>
+</div>
 </section>
 
 <div class="cols">
@@ -323,7 +337,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 
 <div class="tail">
 <!-- Foto final -->
-<section class="sec" style="margin-top:44px">
+<section class="sec" style="margin-top:40px">
 <div class="label" style="margin-bottom:14px">06 · Antecedentes</div>
 <figure style="position:relative;margin:0;border:2px solid var(--ink);background:var(--white);padding:10px;transform:rotate(-1.5deg);box-shadow:5px 5px 0 rgba(22,24,27,.18)">
 <div aria-hidden="true" style="position:absolute;left:22px;top:-12px;width:74px;height:22px;background:rgba(255,194,26,.75);transform:rotate(-8deg)"></div>
@@ -333,7 +347,7 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 </section>
 
 <!-- Rótulo final -->
-<div class="box grid2 mono" style="margin:44px 24px 0;background:var(--paper);font-size:11px;text-transform:uppercase;letter-spacing:.06em">
+<div class="box grid2 mono" style="margin:28px 24px 0;background:var(--paper);font-size:11px;text-transform:uppercase;letter-spacing:.06em">
 <div style="padding:10px 12px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)"><div style="color:var(--muted)">Dibujó</div><div style="font-weight:600;margin-top:3px;font-size:12px">T. Oliveto</div></div>
 <div style="padding:10px 12px;border-bottom:1.5px solid var(--ink)"><div style="color:var(--muted)">Carrera</div><div style="font-weight:600;margin-top:3px;font-size:12px">Diseño Industrial</div></div>
 <div style="padding:10px 12px;border-right:1.5px solid var(--ink)"><div style="color:var(--muted)">Aprobó</div><div style="font-weight:600;margin-top:3px;font-size:12px">FADU (por fin)</div></div>
@@ -342,6 +356,8 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 
 </div>
 </main>
+
+<div id="fx" aria-hidden="true"></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
@@ -352,21 +368,45 @@ h1{margin:10px 0 0;font-size:92px;line-height:.84;font-weight:900;font-stretch:6
 <script>
 (function(){
   var btn=document.getElementById('btn'),label=document.getElementById('btnlabel'),zone=document.getElementById('eggzone'),
-      rsvp=document.getElementById('rsvp'),count=document.getElementById('count'),throws=0;
-  var EGG='<svg viewBox="0 0 30 38" width="30" height="38"><path d="M15 1C23 1 29 14 29 23C29 32 23 37 15 37C7 37 1 32 1 23C1 14 7 1 15 1Z" fill="#FFFDF6" stroke="#16181B" stroke-width="1.6"/><path d="M9 12 C10 9 12 7 14 6" fill="none" stroke="#16181B" stroke-width="1" opacity=".4"/></svg>';
+      rsvp=document.getElementById('rsvp'),count=document.getElementById('count'),fx=document.getElementById('fx'),
+      sheet=document.querySelector('.sheet'),throws=0,total=0;
+  var EGG='<svg viewBox="0 0 30 38" width="100%" height="100%"><path d="M15 1C23 1 29 14 29 23C29 32 23 37 15 37C7 37 1 32 1 23C1 14 7 1 15 1Z" fill="#FFFDF6" stroke="#16181B" stroke-width="1.6"/><path d="M9 12 C10 9 12 7 14 6" fill="none" stroke="#16181B" stroke-width="1" opacity=".4"/></svg>';
+  var SPLAT='<svg viewBox="0 0 64 64"><path d="M30 4c8 0 10 9 17 8s12 3 11 11-6 9-4 16-4 14-13 13-10 6-17 2-15-1-16-9 2-11-1-17 3-13 11-14 9-10 12-10z" fill="#FFFDF6" stroke="#16181B" stroke-width=".5"/><circle cx="32" cy="33" r="11" fill="#FFC21A" stroke="#16181B" stroke-width=".4"/><circle cx="28" cy="29" r="2.4" fill="#FFF3C4"/></svg>';
+  var SHELL='<svg viewBox="0 0 46 36"><path d="M2 30 L8 8 L16 18 L24 2 L30 16 L38 6 L44 30 Q23 38 2 30Z" fill="#FFFDF6" stroke="#16181B" stroke-width="1.6"/></svg>';
+  function add(parent,cls,html,style,ttl){var e=document.createElement('div');e.className=cls;e.innerHTML=html;if(style){e.setAttribute('style',style);}parent.appendChild(e);setTimeout(function(){e.remove();},ttl);return e;}
+  function r(a,b){return a+Math.random()*(b-a);}
+  function toss(){
+    for(var i=0;i<14;i++){add(zone,'egg t'+Math.floor(Math.random()*10)+' d'+Math.floor(Math.random()*4),EGG,'',2300);}
+    return 14;
+  }
+  function rain(){
+    var n=48;
+    for(var i=0;i<n;i++){
+      var size=Math.round(r(22,46));
+      add(fx,'rain',EGG,'left:'+r(-3,97).toFixed(1)+'vw;width:'+size+'px;height:'+Math.round(size*38/30)+'px;animation-duration:'+r(1.3,2.3).toFixed(2)+'s;animation-delay:'+r(0,1.6).toFixed(2)+'s;--r:'+Math.round(r(-540,540))+'deg',4200);
+    }
+    return n;
+  }
+  function giant(){
+    add(fx,'giant',EGG,'',1000);
+    add(fx,'bigsplat',SPLAT,'',4000);
+    for(var i=0;i<9;i++){
+      var ang=(i/9)*Math.PI*2+r(-.3,.3),dist=r(160,320);
+      add(fx,'shell',SHELL,'--dx:'+Math.round(Math.cos(ang)*dist)+'px;--dy:'+Math.round(Math.sin(ang)*dist)+'px;--r:'+Math.round(r(-260,260))+'deg',2300);
+    }
+    sheet.classList.remove('shake');void sheet.offsetWidth;sheet.classList.add('shake');
+    setTimeout(function(){sheet.classList.remove('shake');},1400);
+    return 1;
+  }
   btn.addEventListener('click',function(){
     throws++;
     rsvp.classList.add('going');
-    label.textContent='Tirar más huevos';
-    count.textContent=throws*14;
-    for(var i=0;i<14;i++){
-      var e=document.createElement('div');
-      e.className='egg t'+Math.floor(Math.random()*10)+' d'+Math.floor(Math.random()*4);
-      e.innerHTML=EGG;
-      zone.appendChild(e);
-      (function(el){setTimeout(function(){el.remove();},2300);})(e);
-    }
-    if(navigator.vibrate){navigator.vibrate(30);}
+    var mode=(throws-1)%3;
+    if(mode===0){total+=toss();label.textContent='Tirar más huevos';}
+    else if(mode===1){total+=rain();label.textContent='¿Más? Dale';}
+    else{total+=giant();label.textContent='Tirar más huevos';}
+    count.textContent=total;
+    if(navigator.vibrate){navigator.vibrate(mode===2?[40,60,120]:30);}
   });
 })();
 </script>
