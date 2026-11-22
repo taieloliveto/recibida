@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiesta de recibida · Taiel · 6/12</title>
+<meta name="description" content="Fiesta de recibida · Domingo 6/12 de 00 a 06 h · Ingreso hasta las 2:30 · El Salvador 4947">
+<meta property="og:title" content="Fiesta de recibida · 6/12">
+<meta property="og:description" content="De 00 a 06 h · Ingreso hasta las 2:30 · El Salvador 4947, CABA">
+<meta property="og:image" content="img/chicos.png">
+<meta name="theme-color" content="#16181B">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#16181B;--night:#1D2024;--paper:#F1EFE8;--white:#FFFDF6;--yolk:#FFC21A;--accent:#F26B1D;--muted:#B9BCC2;--blue:#2457D6;--line:rgba(241,239,232,.14)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--paper);font-family:'Archivo',system-ui,sans-serif;background:#0E0F11}
+.sheet{position:relative;max-width:420px;margin:0 auto;overflow:hidden;background-color:var(--ink);background-image:linear-gradient(rgba(241,239,232,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(241,239,232,.07) 1px,transparent 1px),linear-gradient(rgba(241,239,232,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(241,239,232,.03) 1px,transparent 1px);background-size:40px 40px,40px 40px,8px 8px,8px 8px;padding-bottom:40px;min-height:100vh}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.sec{margin:36px 24px 0}
+.box{border:2px solid var(--paper)}
+svg{display:block}
+a{color:var(--paper)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1.5px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}.brand svg{flex:none}
+.brand-txt{display:flex;flex-direction:column;gap:2px;line-height:1.2}.brand-txt b{font-weight:600}.brand-txt span{color:var(--muted);font-size:10px}
+h1{margin:12px 0 0;font-size:clamp(58px,19vw,96px);line-height:.86;font-weight:900;font-stretch:68%;letter-spacing:-.02em;text-transform:uppercase}
+.yel{color:var(--yolk)}
+.out{color:transparent;-webkit-text-stroke:2px var(--paper)}
+/* foto + birretes */
+.photo{position:relative;margin:56px 16px 0}
+.photo img{width:100%;height:auto;display:block;cursor:pointer}
+.cap{position:absolute;aspect-ratio:100/70;pointer-events:none;transform:translateY(-140vh) rotate(var(--r0));animation:drop 1.1s cubic-bezier(.55,0,.75,.35) var(--d) forwards}
+.cap svg{width:100%;height:100%;filter:drop-shadow(2px 4px 0 rgba(0,0,0,.35))}
+@keyframes drop{0%{transform:translateY(-140vh) rotate(var(--r0))}70%{transform:translateY(0) rotate(var(--r1))}80%{transform:translateY(-12%) rotate(calc(var(--r1) * .6))}90%{transform:translateY(0) rotate(var(--r1))}95%{transform:translateY(-3%) rotate(var(--r1))}100%{transform:translateY(0) rotate(var(--r1))}}
+.hint{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;margin:8px 16px 0}
+/* datos */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cell{padding:14px 16px}
+.big{font-size:clamp(22px,7.4vw,34px);line-height:1;font-weight:800;font-stretch:80%;margin-top:6px;white-space:nowrap}
+.warn{border:2px solid var(--paper);background:var(--yolk);color:var(--ink)}
+.stripes{height:16px;border-bottom:2px solid var(--ink);background-image:repeating-linear-gradient(-45deg,#16181B 0 10px,#FFC21A 10px 20px)}
+/* botones */
+.press{transition:transform .08s ease,box-shadow .08s ease;-webkit-tap-highlight-color:transparent}
+.press:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--paper)!important}
+.press:focus-visible{outline:3px solid var(--yolk);outline-offset:3px}
+.linkbtn{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--paper);text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;box-shadow:4px 4px 0 var(--paper)}
+.rsvp{border:2px solid var(--paper);background:var(--night);padding:22px 18px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.field{width:100%;max-width:300px}
+#nombre{width:100%;min-height:48px;padding:10px 12px;border:2px solid var(--paper);background:var(--ink);font-family:'Archivo',sans-serif;font-size:17px;color:var(--paper);border-radius:0;-webkit-appearance:none;appearance:none}
+#nombre::placeholder{color:#8E9197}
+#nombre:focus{outline:3px solid var(--yolk);outline-offset:2px}
+#nombre[aria-invalid="true"]{border-color:#FF6B5E}
+.choices{width:100%;max-width:300px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.choice{min-height:56px;border:2px solid var(--paper);font-family:'Archivo',sans-serif;font-size:18px;font-weight:900;font-stretch:85%;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 var(--paper)}
+.yes{background:var(--yolk);color:var(--ink)}
+.no{background:transparent;color:var(--paper)}
+.done{display:none}
+.answered .done{display:flex}.answered .ask{display:none}
+.chg{background:none;border:0;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:12px;text-decoration:underline;cursor:pointer;padding:8px}
+/* confeti */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.conf{position:absolute;top:-30px;animation-name:conf;animation-timing-function:linear;animation-fill-mode:both}
+@keyframes conf{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(var(--sx),25vh) rotate(calc(var(--r)*.25))}50%{transform:translate(calc(var(--sx)*-1),50vh) rotate(calc(var(--r)*.5))}75%{transform:translate(var(--sx),75vh) rotate(calc(var(--r)*.75))}100%{transform:translate(0,calc(100vh + 60px)) rotate(var(--r))}}
+@media (min-width:900px){
+ body{padding:40px 24px}
+ .sheet{max-width:1100px;min-height:0;border:2px solid var(--paper);box-shadow:10px 10px 0 rgba(255,194,26,.25);padding-bottom:56px}
+ .topbar{padding:16px 40px}
+ .hero{padding:44px 40px 0!important}
+ h1{font-size:132px}
+ .photo{margin:64px 40px 0}
+ .hint{margin-right:40px}
+ .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px;padding:0 16px;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){.cap{animation-duration:.01s;animation-delay:0s!important}#fx{display:none}}
+</style>
+</head>
+<body>
+<main class="sheet">
+
+<div class="topbar label" style="letter-spacing:.08em">
+<span class="brand"><svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true"><rect x="2" y="2" width="60" height="60" fill="#FFC21A" stroke="#F1EFE8" stroke-width="3"/><path d="M32 19 C43 19 48 35 48 42 C48 52 41 58 32 58 C23 58 16 52 16 42 C16 35 21 19 32 19Z" fill="#FFFDF6" stroke="#16181B" stroke-width="3"/><path d="M22 17 L22 24 Q32 29.5 42 24 L42 17 Z" fill="#16181B"/><path d="M32 6 L55 15 L32 24 L9 15 Z" fill="#16181B"/><path d="M32 15 L49 18 L49 29" stroke="#F26B1D" stroke-width="2.4" fill="none"/><rect x="46.5" y="28" width="5" height="8" rx="1" fill="#F26B1D"/></svg><span class="brand-txt"><b>T.O. · D.I.</b><span>Plano N° 02 · Hoja 1/1</span></span></span>
+<span>Turno noche</span>
+</div>
+
+<section class="hero" style="padding:30px 24px 0">
+<div class="label" style="display:flex;align-items:center;gap:8px;font-size:12px">
+<span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
+<span>Post entrega · Ya con el título</span>
+</div>
+<h1>Fiesta<br><span class="yel">de</span> <span class="out">reci-</span><br><span class="out">bida.</span></h1>
+</section>
+
+<!-- Foto con birretes -->
+<div class="photo" id="photo">
+<img src="img/chicos.png" alt="Collage de fotos de chicos disfrazados: una nena acostada con vestido cuadrillé, un nene con gorra azul y batería, una nena disfrazada de flor, Taiel con chaleco amarillo y una nena en malla rosa" width="1400" height="749">
+<div class="cap" style="left:31.1%;top:50.8%;width:10.7%;--d:.3s;--r0:-40deg;--r1:-10deg"></div>
+<div class="cap" style="left:44.5%;top:26%;width:10.7%;--d:.55s;--r0:35deg;--r1:8deg"></div>
+<div class="cap" style="left:59%;top:-2.9%;width:8.6%;--d:.8s;--r0:-30deg;--r1:-4deg"></div>
+<div class="cap" style="left:73.3%;top:7.9%;width:9.6%;--d:1.05s;--r0:45deg;--r1:-12deg"></div>
+<div class="cap" style="left:89.5%;top:11.6%;width:8.6%;--d:1.3s;--r0:-25deg;--r1:10deg"></div>
+</div>
+<div class="hint">Fig. 1 · Elenco estable · tocá la foto</div>
+
+<div class="cols">
+<div>
+<!-- Datos -->
+<div class="box grid2" style="margin:32px 24px 0;background:var(--night)">
+<div style="grid-column:span 2;padding:16px 16px 14px;border-bottom:1.5px solid var(--paper)">
+<div class="label" style="color:var(--muted)">Fecha</div>
+<div style="font-size:clamp(26px,9vw,40px);line-height:1;font-weight:900;font-stretch:75%;text-transform:uppercase;margin-top:6px;white-space:nowrap">Domingo 06.12</div>
+<div class="mono" style="font-size:13px;margin-top:6px">La noche del sábado 5 al domingo 6</div>
+</div>
+<div class="cell" style="border-right:1.5px solid var(--paper)">
+<div class="label" style="color:var(--muted)">Horario</div>
+<div class="big">00 a 06 h</div>
+<div style="font-size:13px;line-height:1.35;margin-top:6px">De 12 de la noche a 6 de la mañana.</div>
+</div>
+<div class="cell" style="background:var(--yolk);color:var(--ink)">
+<div class="label">Ingreso</div>
+<div class="big">hasta 2:30</div>
+<div style="font-size:13px;line-height:1.35;margin-top:6px">Después de esa hora no se entra.</div>
+</div>
+<div style="grid-column:span 2;padding:14px 16px;border-top:1.5px solid var(--paper);display:flex;justify-content:space-between;align-items:flex-end;gap:12px">
+<div>
+<div class="label" style="color:var(--muted)">Lugar</div>
+<div style="font-size:20px;font-weight:800;margin-top:4px">El Salvador 4947</div>
+<div style="font-size:13px;margin-top:2px">Ciudad de Buenos Aires</div>
+</div>
+<svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="#F1EFE8" stroke-width="1.5"/><path d="M18 5 L23 20 L18 17 L13 20 Z" fill="#F1EFE8"/><text x="18" y="31" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#F1EFE8">N</text></svg>
+</div>
+</div>
+<div class="grid2" style="gap:10px;margin:14px 24px 0">
+<a class="press linkbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=El+Salvador+4947,+Ciudad+de+Buenos+Aires" target="_blank" rel="noopener" style="background:var(--paper);color:var(--ink)">
+<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 C11 1 13 3.3 13 6 C13 9.5 8 15 8 15 C8 15 3 9.5 3 6 C3 3.3 5 1 8 1 Z" fill="none" stroke="#16181B" stroke-width="1.6"/><circle cx="8" cy="6" r="1.8" fill="#16181B"/></svg>Cómo llegar</a>
+<a class="press linkbtn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Fiesta%20de%20recibida%20de%20Taiel&amp;dates=20261206T030000Z/20261206T090000Z&amp;location=El%20Salvador%204947%2C%20Ciudad%20de%20Buenos%20Aires&amp;details=De%2000%20a%2006%20h.%20Ingreso%20hasta%20las%202%3A30." target="_blank" rel="noopener" style="background:transparent;color:var(--paper)">
+<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11.5" fill="none" stroke="#F1EFE8" stroke-width="1.6"/><line x1="1.5" y1="6.5" x2="14.5" y2="6.5" stroke="#F1EFE8" stroke-width="1.6"/><line x1="5" y1="1" x2="5" y2="4" stroke="#F1EFE8" stroke-width="1.6"/><line x1="11" y1="1" x2="11" y2="4" stroke="#F1EFE8" stroke-width="1.6"/></svg>Agendar</a>
+</div>
+</div>
+
+<div>
+<!-- Aviso -->
+<div class="warn" style="margin:32px 24px 0">
+<div class="stripes"></div>
+<div style="padding:16px 16px 18px;display:flex;gap:14px;align-items:flex-start">
+<svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true" style="flex:none"><path d="M20 2 L38 34 H2 Z" fill="#FFC21A" stroke="#16181B" stroke-width="2.4" stroke-linejoin="round"/><rect x="18.5" y="12" width="3" height="12" fill="#16181B"/><rect x="18.5" y="27" width="3" height="3" fill="#16181B"/></svg>
+<div>
+<div style="font-size:22px;line-height:1.05;font-weight:900;font-stretch:78%;text-transform:uppercase">Ingreso hasta las 2:30</div>
+<p style="margin:8px 0 0;font-size:14px;line-height:1.45">Llegá antes de las 2:30, después no te dejan pasar.</p>
+</div>
+</div>
+</div>
+
+<!-- Confirmación -->
+<section class="sec">
+<div class="label" style="margin-bottom:10px">Confirmación</div>
+<div id="rsvp" class="rsvp">
+<div style="font-size:26px;line-height:1.05;font-weight:900;font-stretch:75%;text-transform:uppercase">¿Venís el 6?</div>
+<div class="ask field">
+<label for="nombre" style="display:block;text-align:left;margin-bottom:8px;font-size:14px;line-height:1.35;font-weight:600">Escribí tu nombre y contame si venís 🎓</label>
+<input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="60" placeholder="Nombre/apodo" enterkeyhint="done">
+<div id="nameerr" class="mono" role="alert" style="display:none;text-align:left;font-size:12px;margin-top:6px;color:#FF8A80">Escribí tu nombre para confirmar.</div>
+</div>
+<div class="ask choices">
+<button class="press choice yes" type="button" data-r="Sí">Voy</button>
+<button class="press choice no" type="button" data-r="No">No puedo</button>
+</div>
+<div class="done" style="flex-direction:column;align-items:center;gap:6px" aria-live="polite">
+<div id="msg" style="font-size:17px;font-weight:700;line-height:1.35"></div>
+<button id="chg" class="chg" type="button">Cambiar respuesta</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+<!-- Rótulo -->
+<div class="box grid2 mono" style="margin:36px 24px 0;background:var(--night);font-size:11px;text-transform:uppercase;letter-spacing:.06em">
+<div style="padding:10px 12px;border-right:1.5px solid var(--paper);border-bottom:1.5px solid var(--paper)"><div style="color:var(--muted)">Organiza</div><div style="font-weight:600;margin-top:3px;font-size:12px">T. Oliveto</div></div>
+<div style="padding:10px 12px;border-bottom:1.5px solid var(--paper)"><div style="color:var(--muted)">Motivo</div><div style="font-weight:600;margin-top:3px;font-size:12px">Me recibí</div></div>
+<div style="padding:10px 12px;border-right:1.5px solid var(--paper)"><div style="color:var(--muted)">Dress code</div><div style="font-weight:600;margin-top:3px;font-size:12px">Libre</div></div>
+<div style="padding:10px 12px;background:var(--yolk);color:var(--ink)"><div>Estado</div><div style="font-weight:600;margin-top:3px;font-size:12px">Diseñador ✓</div></div>
+</div>
+
+</main>
+<div id="fx" aria-hidden="true"></div>
+
+<script src="../config.js"></script>
+<script>
+(function(){
+  var CAP='<svg viewBox="0 0 100 70" width="100%" height="100%"><path d="M26 30 L26 50 Q50 62 74 50 L74 30 Z" fill="#23262B" stroke="#0E0F11" stroke-width="1.2"/><path d="M50 6 L98 24 L50 42 L2 24 Z" fill="#16181B" stroke="#3A3E45" stroke-width="1"/><path d="M50 9 L91 24 L50 39 L9 24 Z" fill="none" stroke="#3A3E45" stroke-width=".8"/><path d="M50 24 L86 30 L86 50" fill="none" stroke="#FFC21A" stroke-width="2.4"/><rect x="82" y="48" width="8" height="14" rx="1.5" fill="#FFC21A" stroke="#16181B" stroke-width=".6"/><circle cx="50" cy="24" r="2.6" fill="#FFC21A"/></svg>';
+  var caps=document.querySelectorAll('.cap'),photo=document.getElementById('photo'),fx=document.getElementById('fx');
+  for(var i=0;i<caps.length;i++){caps[i].innerHTML=CAP;}
+  function r(a,b){return a+Math.random()*(b-a);}
+  function confetti(n){
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
+    var colors=['#FFC21A','#F26B1D','#2457D6','#F1EFE8','#6CC04A','#FF6FB5'];
+    for(var i=0;i<n;i++){
+      var e=document.createElement('div');e.className='conf';
+      e.setAttribute('style','left:'+r(0,100).toFixed(1)+'vw;width:'+Math.round(r(6,11))+'px;height:'+Math.round(r(10,18))+'px;background:'+colors[i%colors.length]+';animation-duration:'+r(2.6,4.2).toFixed(2)+'s;animation-delay:'+r(.6,2).toFixed(2)+'s;--sx:'+Math.round(r(-40,40))+'px;--r:'+Math.round(r(-720,720))+'deg');
+      fx.appendChild(e);(function(el){setTimeout(function(){el.remove();},6500);})(e);
+    }
+  }
+  confetti(60);
+  // tocar la foto: vuelven a caer
+  photo.querySelector('img').addEventListener('click',function(){
+    for(var i=0;i<caps.length;i++){var c=caps[i];c.style.animation='none';void c.offsetWidth;c.style.animation='';}
+    confetti(30);
+  });
+
+  // confirmación
+  var rsvp=document.getElementById('rsvp'),input=document.getElementById('nombre'),err=document.getElementById('nameerr'),
+      msg=document.getElementById('msg'),chg=document.getElementById('chg'),
+      SHEET_URL=(window.RECIBIDA_CONFIG&&window.RECIBIDA_CONFIG.sheetUrl)||'';
+  function store(k,v){try{if(v===undefined){return localStorage.getItem(k);}localStorage.setItem(k,v);}catch(e){return null;}}
+  function show(nombre,resp){
+    var n=nombre.split(' ')[0];
+    msg.textContent=resp==='Sí'?('¡Listo, '+n+'! Te espero el 6. Acordate: ingreso hasta las 2:30.'):('Una pena, '+n+'. Gracias por avisar.');
+    rsvp.classList.add('answered');
+  }
+  var saved=store('fiesta_resp');
+  if(saved){try{var o=JSON.parse(saved);input.value=o.nombre;show(o.nombre,o.resp);}catch(e){}}
+  input.addEventListener('input',function(){err.style.display='none';input.removeAttribute('aria-invalid');});
+  var btns=document.querySelectorAll('.choice');
+  for(var j=0;j<btns.length;j++){
+    btns[j].addEventListener('click',function(){
+      var nombre=input.value.replace(/\s+/g,' ').trim(),resp=this.getAttribute('data-r');
+      if(nombre.length<2){err.style.display='block';input.setAttribute('aria-invalid','true');input.focus();return;}
+      if(SHEET_URL){
+        try{fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body:JSON.stringify({tipo:'fiesta',nombre:nombre,respuesta:resp,dispositivo:/Mobi|Android|iPhone/i.test(navigator.userAgent)?'Celular':'Computadora'})});}catch(e){}
+      }
+      store('fiesta_resp',JSON.stringify({nombre:nombre,resp:resp}));
+      show(nombre,resp);
+      if(resp==='Sí'){confetti(50);}
+    });
+  }
+  chg.addEventListener('click',function(){rsvp.classList.remove('answered');input.focus();});
+})();
+</script>
+</body>
+</html>
