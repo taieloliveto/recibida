@@ -65,6 +65,11 @@ h1 .b{color:var(--blue)}
 #nombre::placeholder{color:#8A8275}
 #nombre:focus{outline:3px solid var(--blue);outline-offset:2px}
 #nombre[aria-invalid="true"]{border-color:#C4361C}
+.parte{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;text-align:left}
+.parte label{font-size:15px;font-weight:800;line-height:1.2}
+#departe{flex:none;min-width:116px;min-height:48px;padding:8px 34px 8px 14px;border:2.5px solid var(--fg);border-radius:14px;background:var(--field) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231E1B18' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--fg);-webkit-appearance:none;appearance:none;cursor:pointer}
+#departe:focus{outline:3px solid var(--blue);outline-offset:2px}
+#departe[aria-invalid="true"]{border-color:#C4361C}
 .choices{width:100%;max-width:320px;display:flex;flex-wrap:wrap;gap:12px}.choices .choice{flex:1 1 130px}
 .choice{min-height:56px;padding:8px 14px;line-height:1.15;border:2.5px solid var(--fg);border-radius:999px;font-family:'Nunito',sans-serif;font-size:19px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0 var(--fg)}
 .yes{background:var(--accent);color:#1E1B18}
@@ -235,6 +240,18 @@ h1 .b{color:var(--blue)}
 <label for="nombre" style="display:block;text-align:left;margin-bottom:8px;font-size:15px;line-height:1.35;font-weight:700">Escribí tu nombre y contame si venís 🎓</label>
 <input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="60" placeholder="Nombre/apodo" enterkeyhint="done">
 <div id="nameerr" role="alert" style="display:none;text-align:left;font-size:13px;font-weight:700;margin-top:6px;color:#C4361C">Escribí tu nombre para confirmar.</div>
+<div class="parte">
+<label for="departe">¿De parte de quién venís?</label>
+<select id="departe" name="departe" required>
+<option value="" selected disabled>Elegí</option>
+<option>More</option>
+<option>Juli</option>
+<option>Valen</option>
+<option>Bruno</option>
+<option>Tai</option>
+</select>
+</div>
+<div id="parteerr" role="alert" style="display:none;text-align:left;font-size:13px;font-weight:700;margin-top:6px;color:#C4361C">Elegí de parte de quién venís.</div>
 </div>
 <div class="choices">
 <button class="press choice yes ask" type="button" data-r="Sí">¡Voy!</button>
@@ -330,18 +347,22 @@ h1 .b{color:var(--blue)}
     rsvp.classList.add('answered');
   }
   var saved=store('fiesta_resp');
-  if(saved){try{var o=JSON.parse(saved);input.value=o.nombre;show(o.nombre,o.resp);}catch(e){}}
+  if(saved){try{var o=JSON.parse(saved);input.value=o.nombre;if(o.parte){sel.value=o.parte;}show(o.nombre,o.resp);}catch(e){}}
+  var sel=document.getElementById('departe'),perr=document.getElementById('parteerr');
   input.addEventListener('input',function(){err.style.display='none';input.removeAttribute('aria-invalid');});
+  sel.addEventListener('change',function(){perr.style.display='none';sel.removeAttribute('aria-invalid');});
   var btns=document.querySelectorAll('.choice.yes');
   for(var j=0;j<btns.length;j++){
     btns[j].addEventListener('click',function(){
       var nombre=input.value.replace(/\s+/g,' ').trim(),resp=this.getAttribute('data-r');
+      var parte=sel.value;
       if(nombre.length<2){err.style.display='block';input.setAttribute('aria-invalid','true');input.focus();return;}
+      if(!parte){perr.style.display='block';sel.setAttribute('aria-invalid','true');sel.focus();return;}
       if(SHEET_URL){
         try{fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
-          body:JSON.stringify({tipo:'fiesta',nombre:nombre,respuesta:resp,dispositivo:/Mobi|Android|iPhone/i.test(navigator.userAgent)?'Celular':'Computadora'})});}catch(e){}
+          body:JSON.stringify({tipo:'fiesta',nombre:nombre,respuesta:resp,deParte:parte,dispositivo:/Mobi|Android|iPhone/i.test(navigator.userAgent)?'Celular':'Computadora'})});}catch(e){}
       }
-      store('fiesta_resp',JSON.stringify({nombre:nombre,resp:resp}));
+      store('fiesta_resp',JSON.stringify({nombre:nombre,resp:resp,parte:parte}));
       show(nombre,resp);
       if(resp==='Sí'){confetti(50);}
     });

@@ -11,8 +11,8 @@ function doPost(e) {
     var disp = String(data.dispositivo || '');
     if (data.tipo === 'fiesta') {
       var f = ss.getSheetByName('Fiesta') || ss.insertSheet('Fiesta');
-      if (f.getLastRow() === 0) f.appendRow(['Fecha y hora', 'Nombre', '¿Viene?', 'Dispositivo']);
-      f.appendRow([new Date(), nombre, String(data.respuesta || ''), disp]);
+      if (f.getLastRow() === 0) f.appendRow(['Fecha y hora', 'Nombre', '¿Viene?', 'Dispositivo', 'De parte de']);
+      f.appendRow([new Date(), nombre, String(data.respuesta || ''), disp, String(data.deParte || '')]);
     } else {
       var s = ss.getSheets()[0];
       if (s.getLastRow() === 0) s.appendRow(['Fecha y hora', 'Nombre', 'Dispositivo']);
