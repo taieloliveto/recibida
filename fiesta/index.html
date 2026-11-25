@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400..900;1,700&family=Caveat:wght@500..700&display=swap">
 <style>
-:root{--ink:#1E1B18;--fg:#1E1B18;--bg:#EEE2FC;--box:#FFFDF6;--field:#FAF6FF;--yolk:#FFC21A;--accent:#F24E06;--pink:#F888B6;--blue:#3A4E86;--green:#2FB765;--muted:#5C564C}
+:root{--ink:#1E1B18;--fg:#1E1B18;--bg:#EEE2FC;--box:#FFFDF6;--field:#FAF6FF;--yolk:#FFB27E;--accent:#F24E06;--pink:#F888B6;--blue:#3A4E86;--green:#2FB765;--muted:#5C564C}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;color:var(--fg);font-family:'Nunito',system-ui,sans-serif;background:var(--bg)}
@@ -53,7 +53,7 @@ h1 .b{color:var(--blue)}
 .big{font-size:clamp(22px,7vw,32px);line-height:1;font-weight:900;margin-top:6px;white-space:nowrap;letter-spacing:-.02em}
 .sec{position:relative;margin:36px 24px 0}
 .warn{background:var(--yolk)}
-.stripes{height:14px;border-bottom:2.5px solid var(--fg);background-image:repeating-linear-gradient(-45deg,#1E1B18 0 9px,#FFC21A 9px 18px)}
+.stripes{height:14px;border-bottom:2.5px solid var(--fg);background-image:repeating-linear-gradient(-45deg,#1E1B18 0 9px,#FFB27E 9px 18px)}
 /* botones */
 .press{transition:transform .08s ease,box-shadow .08s ease;-webkit-tap-highlight-color:transparent}
 .press:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--fg)!important}
@@ -84,6 +84,15 @@ h1 .b{color:var(--blue)}
 @keyframes foam{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}6%{opacity:1}40%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1)}85%{opacity:1}100%{transform:translate(calc(-50% + var(--dx) * 1.3),calc(-50% + var(--dy) + 75vh)) scale(.8);opacity:0}}
 .cork{position:absolute;width:16px;height:20px;border-radius:5px 5px 7px 7px;background:#C08A4E;border:2px solid #1E1B18;animation:cork 1.6s cubic-bezier(.2,.7,.5,1) both}
 @keyframes cork{0%{transform:translate(-50%,-50%) rotate(0)}45%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(540deg)}100%{transform:translate(calc(-50% + var(--dx) * 1.4),calc(-50% + var(--dy) + 90vh)) rotate(900deg)}}
+.tetra{position:absolute;top:0;width:min(20vw,96px);aspect-ratio:70/112;transform-origin:50% 50%}
+.tetra svg{width:100%;height:100%}
+.tetra .mouth{position:absolute;left:50%;top:2%;width:2px;height:2px}
+.tetra.l{left:12%;animation:tl 3.8s cubic-bezier(.3,.7,.4,1) both}
+.tetra.r{right:12%;animation:tr 3.8s cubic-bezier(.3,.7,.4,1) both}
+@keyframes tl{0%{transform:translateY(-140%) rotate(0)}18%{transform:translateY(20%) rotate(0)}30%{transform:translateY(20%) rotate(135deg)}82%{transform:translateY(20%) rotate(135deg)}92%{transform:translateY(20%) rotate(0)}100%{transform:translateY(-140%) rotate(0)}}
+@keyframes tr{0%{transform:translateY(-140%) rotate(0)}18%{transform:translateY(20%) rotate(0)}30%{transform:translateY(20%) rotate(-135deg)}82%{transform:translateY(20%) rotate(-135deg)}92%{transform:translateY(20%) rotate(0)}100%{transform:translateY(-140%) rotate(0)}}
+.drop{position:absolute;width:var(--w,8px);height:calc(var(--w,8px) * 1.5);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;background:#7A0F2E;animation:drop2 var(--t,1.2s) cubic-bezier(.5,0,.9,.6) both}
+@keyframes drop2{0%{transform:translate(-50%,-50%) scale(.6);opacity:0}8%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + 100vh)) scale(1.1);opacity:1}}
 .rain{position:absolute;top:-70px;animation-name:rain;animation-timing-function:cubic-bezier(.45,.05,.9,.6);animation-fill-mode:both}
 .rain svg{width:100%;height:100%}
 @keyframes rain{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(calc(100vh + 140px)) rotate(var(--r))}}
@@ -290,9 +299,23 @@ h1 .b{color:var(--blue)}
       el('rain',EGG,'left:'+r(-3,97).toFixed(1)+'vw;width:'+sz+'px;height:'+Math.round(sz*38/30)+'px;animation-duration:'+r(1.3,2.3).toFixed(2)+'s;animation-delay:'+r(0,1.4).toFixed(2)+'s;--r:'+Math.round(r(-540,540))+'deg',4200);
     }
   }
+  var TETRA='<svg viewBox="0 0 70 112"><path d="M8 22 L35 6 L62 22 Z" fill="#E9DCC4" stroke="#1E1B18" stroke-width="2.5" stroke-linejoin="round"/><rect x="30" y="0" width="10" height="9" rx="2" fill="#1E1B18"/><rect x="8" y="22" width="54" height="86" rx="3" fill="#8B1538" stroke="#1E1B18" stroke-width="2.5"/><rect x="14" y="42" width="42" height="44" rx="4" fill="#FFFDF6" stroke="#1E1B18" stroke-width="2"/><text x="35" y="60" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="12" fill="#8B1538">VINO</text><text x="35" y="72" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="700" font-size="7" fill="#1E1B18">TINTO</text><g fill="#5B2A86"><circle cx="31" cy="79" r="2.6"/><circle cx="36" cy="79" r="2.6"/><circle cx="33.5" cy="83" r="2.6"/></g><path d="M8 96 H62" stroke="#FFFDF6" stroke-width="2"/></svg>';
+  function pour(t,dir){
+    var m=t.querySelector('.mouth').getBoundingClientRect(),x=m.left,y=m.top;
+    for(var i=0;i<80;i++){
+      var w=Math.round(r(6,11));
+      el('drop','','left:'+(x+r(-4,4))+'px;top:'+(y+r(-4,4))+'px;--w:'+w+'px;--dx:'+Math.round(dir*r(10,70))+'px;--t:'+r(.9,1.4).toFixed(2)+'s;animation-delay:'+r(0,1.7).toFixed(2)+'s',3400);
+    }
+  }
+  function vino(){
+    var tl=el('tetra l',TETRA+'<span class="mouth"></span>','',4000),tr=el('tetra r',TETRA+'<span class="mouth"></span>','',4000);
+    setTimeout(function(){pour(tl,1);pour(tr,-1);},1200);
+  }
   tirar.addEventListener('click',function(){
-    if(tiros%2===0){champagne();tirar.textContent='¿Y unos huevos?';}
-    else{eggRain();tirar.textContent='Quiero tirar algo';}
+    var m=tiros%3;
+    if(m===0){champagne();tirar.textContent='¿Y unos huevos?';}
+    else if(m===1){eggRain();tirar.textContent='¿Y un termi?';}
+    else{vino();tirar.textContent='Quiero tirar algo';}
     tiros++;
     if(navigator.vibrate){navigator.vibrate(40);}
   });
