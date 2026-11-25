@@ -8,13 +8,13 @@
 <meta property="og:title" content="Fiesta de recibida · 6/12">
 <meta property="og:description" content="De 00 a 06 h · Ingreso hasta las 2:30 · El Salvador 4947, CABA">
 <meta property="og:image" content="img/chicos.png">
-<meta name="theme-color" content="#FFF3C2">
+<meta name="theme-color" content="#EEE2FC">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400..900;1,700&family=Caveat:wght@500..700&display=swap">
 <style>
-:root{--ink:#1E1B18;--fg:#1E1B18;--bg:#FFF3C2;--box:#FFFDF6;--field:#FFF9E3;--yolk:#FFC21A;--accent:#F24E06;--pink:#F888B6;--blue:#3A4E86;--green:#2FB765;--muted:#5C564C}
+:root{--ink:#1E1B18;--fg:#1E1B18;--bg:#EEE2FC;--box:#FFFDF6;--field:#FAF6FF;--yolk:#FFC21A;--accent:#F24E06;--pink:#F888B6;--blue:#3A4E86;--green:#2FB765;--muted:#5C564C}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;color:var(--fg);font-family:'Nunito',system-ui,sans-serif;background:var(--bg)}
@@ -30,7 +30,7 @@ a{color:var(--fg)}
 .d.float{animation:float 6s ease-in-out infinite alternate}
 @keyframes float{from{transform:rotate(var(--rt,0deg)) translateY(0)}to{transform:rotate(calc(var(--rt,0deg) + 8deg)) translateY(-6px)}}
 /* top */
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 24px 0}
+.topbar{display:flex;justify-content:flex-end;align-items:center;padding:16px 24px 0}
 .brand{display:flex;align-items:center;gap:10px}.brand svg{flex:none}
 .brand-txt{display:flex;flex-direction:column;line-height:1.15}.brand-txt b{font-weight:900;font-size:14px}.brand-txt span{color:var(--muted);font-size:12px;font-weight:600}
 .night{font-size:24px;transform:rotate(-4deg);color:var(--accent)}
@@ -39,12 +39,12 @@ h1{position:relative;margin:10px 0 0;font-size:clamp(58px,18vw,92px);line-height
 h1 .o{color:var(--accent)}
 h1 .b{color:var(--blue)}
 .scrib{position:absolute;font-family:'Caveat',cursive;font-weight:700;font-size:26px;line-height:1;color:var(--fg);letter-spacing:0;white-space:nowrap}
-.photo{position:relative;margin:46px -8px 0}
+.photo{position:relative;margin:14px -8px 0}
 .photo img{width:100%;height:auto;display:block;cursor:pointer}
 .cap{position:absolute;aspect-ratio:100/70;pointer-events:none;transform:translateY(-140vh) rotate(var(--r0));animation:drop 1.1s cubic-bezier(.55,0,.75,.35) var(--d) forwards}
 .cap svg{width:100%;height:100%;filter:drop-shadow(2px 4px 0 rgba(0,0,0,.25))}
 @keyframes drop{0%{transform:translateY(-140vh) rotate(var(--r0))}70%{transform:translateY(0) rotate(var(--r1))}80%{transform:translateY(-12%) rotate(calc(var(--r1) * .6))}90%{transform:translateY(0) rotate(var(--r1))}95%{transform:translateY(-3%) rotate(var(--r1))}100%{transform:translateY(0) rotate(var(--r1))}}
-.hint{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin:6px 4px 0;font-family:'Caveat',cursive;font-weight:700;font-size:22px;line-height:1;color:var(--muted)}
+.hint{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin:6px 4px 0;font-family:'Caveat',cursive;font-weight:700;font-size:26px;line-height:1;color:var(--fg)}
 .hero-grid{display:block}
 /* cajas */
 .card{background:var(--box);border:2.5px solid var(--fg);border-radius:22px;box-shadow:5px 5px 0 var(--fg);overflow:hidden}
@@ -65,13 +65,28 @@ h1 .b{color:var(--blue)}
 #nombre::placeholder{color:#8A8275}
 #nombre:focus{outline:3px solid var(--blue);outline-offset:2px}
 #nombre[aria-invalid="true"]{border-color:#C4361C}
-.choices{width:100%;max-width:300px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.choice{min-height:56px;border:2.5px solid var(--fg);border-radius:999px;font-family:'Nunito',sans-serif;font-size:19px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0 var(--fg)}
+.choices{width:100%;max-width:320px;display:flex;flex-wrap:wrap;gap:12px}.choices .choice{flex:1 1 130px}
+.choice{min-height:56px;padding:8px 14px;line-height:1.15;border:2.5px solid var(--fg);border-radius:999px;font-family:'Nunito',sans-serif;font-size:19px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0 var(--fg)}
 .yes{background:var(--accent);color:#1E1B18}
 .no{background:var(--box);color:var(--fg)}
 .done{display:none}
-.answered .done{display:flex}.answered .ask{display:none}
+.answered .done{display:flex}.answered .ask{display:none!important}
 .chg{background:none;border:0;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;text-decoration:underline;cursor:pointer;padding:8px}
+/* champagne y huevos */
+.bottle{position:absolute;bottom:-14px;width:min(19vw,100px);aspect-ratio:60/170;transform-origin:50% 100%}
+.bottle svg{width:100%;height:100%}
+.bottle .mouth{position:absolute;left:50%;top:0;width:2px;height:2px}
+.bottle.l{left:3%;animation:bl 3.2s cubic-bezier(.3,.7,.4,1) both}
+.bottle.r{right:3%;animation:br 3.2s cubic-bezier(.3,.7,.4,1) both}
+@keyframes bl{0%{transform:translateY(115%) rotate(15deg)}16%{transform:translateY(0) rotate(15deg)}20%{transform:translateY(0) rotate(10deg)}24%{transform:translateY(0) rotate(20deg)}28%{transform:translateY(0) rotate(12deg)}32%{transform:translateY(0) rotate(16deg)}82%{transform:translateY(0) rotate(16deg)}100%{transform:translateY(120%) rotate(16deg)}}
+@keyframes br{0%{transform:translateY(115%) rotate(-15deg)}16%{transform:translateY(0) rotate(-15deg)}20%{transform:translateY(0) rotate(-10deg)}24%{transform:translateY(0) rotate(-20deg)}28%{transform:translateY(0) rotate(-12deg)}32%{transform:translateY(0) rotate(-16deg)}82%{transform:translateY(0) rotate(-16deg)}100%{transform:translateY(120%) rotate(-16deg)}}
+.foam{position:absolute;border-radius:50%;background:#FFFDF6;border:1.5px solid rgba(30,27,24,.35);animation:foam var(--t,1.8s) cubic-bezier(.2,.7,.5,1) both}
+@keyframes foam{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}6%{opacity:1}40%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1)}85%{opacity:1}100%{transform:translate(calc(-50% + var(--dx) * 1.3),calc(-50% + var(--dy) + 75vh)) scale(.8);opacity:0}}
+.cork{position:absolute;width:16px;height:20px;border-radius:5px 5px 7px 7px;background:#C08A4E;border:2px solid #1E1B18;animation:cork 1.6s cubic-bezier(.2,.7,.5,1) both}
+@keyframes cork{0%{transform:translate(-50%,-50%) rotate(0)}45%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(540deg)}100%{transform:translate(calc(-50% + var(--dx) * 1.4),calc(-50% + var(--dy) + 90vh)) rotate(900deg)}}
+.rain{position:absolute;top:-70px;animation-name:rain;animation-timing-function:cubic-bezier(.45,.05,.9,.6);animation-fill-mode:both}
+.rain svg{width:100%;height:100%}
+@keyframes rain{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(calc(100vh + 140px)) rotate(var(--r))}}
 /* confeti */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
 .conf{position:absolute;top:-30px;border-radius:3px;animation-name:conf;animation-timing-function:linear;animation-fill-mode:both}
@@ -125,7 +140,6 @@ h1 .b{color:var(--blue)}
 </div>
 
 <div class="topbar">
-<span class="brand"><svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="16" fill="#FFC21A" stroke="#1E1B18" stroke-width="3"/><path d="M32 19 C43 19 48 35 48 42 C48 52 41 58 32 58 C23 58 16 52 16 42 C16 35 21 19 32 19Z" fill="#FFFDF6" stroke="#1E1B18" stroke-width="3"/><path d="M22 17 L22 24 Q32 29.5 42 24 L42 17 Z" fill="#1E1B18"/><path d="M32 6 L55 15 L32 24 L9 15 Z" fill="#1E1B18"/><path d="M32 15 L49 18 L49 29" stroke="#F26B1D" stroke-width="2.4" fill="none"/><rect x="46.5" y="28" width="5" height="8" rx="1" fill="#F26B1D"/></svg><span class="brand-txt"><b>Taiel</b><span>fiesta de recibida</span></span></span>
 <span class="hand night">turno noche ☾</span>
 </div>
 
@@ -145,7 +159,7 @@ h1 .b{color:var(--blue)}
 <div class="cap" style="left:89.5%;top:11.6%;width:8.6%;--d:1.3s;--r0:-25deg;--r1:10deg"></div>
 </div>
 </div>
-<div class="hint"><svg width="34" height="22" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 18 C10 20 22 16 30 4" fill="none" stroke="#5C564C" stroke-width="2" stroke-linecap="round"/><path d="M24 4 L30 4 L30 10" fill="none" stroke="#5C564C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>el elenco estable (tocá la foto)</div>
+<div class="hint"><svg width="34" height="22" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 18 C10 20 22 16 30 4" fill="none" stroke="#5C564C" stroke-width="2" stroke-linecap="round"/><path d="M24 4 L30 4 L30 10" fill="none" stroke="#5C564C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bruni, Valen, More, Juli y Tai</div>
 </div>
 </div>
 </section>
@@ -213,9 +227,9 @@ h1 .b{color:var(--blue)}
 <input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="60" placeholder="Nombre/apodo" enterkeyhint="done">
 <div id="nameerr" role="alert" style="display:none;text-align:left;font-size:13px;font-weight:700;margin-top:6px;color:#C4361C">Escribí tu nombre para confirmar.</div>
 </div>
-<div class="ask choices">
-<button class="press choice yes" type="button" data-r="Sí">¡Voy!</button>
-<button class="press choice no" type="button" data-r="No">No puedo</button>
+<div class="choices">
+<button class="press choice yes ask" type="button" data-r="Sí">¡Voy!</button>
+<button id="tirar" class="press choice no" type="button">Quiero tirar algo</button>
 </div>
 <div class="done" style="flex-direction:column;align-items:center;gap:6px" aria-live="polite">
 <div id="msg" style="font-size:18px;font-weight:800;line-height:1.35"></div>
@@ -252,6 +266,36 @@ h1 .b{color:var(--blue)}
     confetti(30);
   });
 
+  // quiero tirar algo: champagne y huevos
+  var tirar=document.getElementById('tirar'),tiros=0;
+  var BOTTLE='<svg viewBox="0 0 60 170"><path d="M24 2 H36 V40 C36 52 54 60 54 82 V160 C54 165 50 168 45 168 H15 C10 168 6 165 6 160 V82 C6 60 24 52 24 40 Z" fill="#2E5A3C" stroke="#1E1B18" stroke-width="2.5"/><path d="M22 2 H38 V34 H22 Z" fill="#E9B92E" stroke="#1E1B18" stroke-width="2.5"/><rect x="9" y="96" width="42" height="34" rx="4" fill="#FFFDF6" stroke="#1E1B18" stroke-width="2"/><path d="M16 108 H44 M20 117 H40" stroke="#8B1538" stroke-width="3" stroke-linecap="round"/><path d="M13 76 C13 70 17 64 22 62" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/></svg>';
+  var EGG='<svg viewBox="0 0 30 38"><path d="M15 1C23 1 29 14 29 23C29 32 23 37 15 37C7 37 1 32 1 23C1 14 7 1 15 1Z" fill="#FFFDF6" stroke="#1E1B18" stroke-width="1.6"/><path d="M9 12 C10 9 12 7 14 6" fill="none" stroke="#1E1B18" stroke-width="1" opacity=".4"/></svg>';
+  function el(cls,html,style,ttl){var e=document.createElement('div');e.className=cls;if(html){e.innerHTML=html;}if(style){e.setAttribute('style',style);}fx.appendChild(e);setTimeout(function(){e.remove();},ttl);return e;}
+  function spray(b,angle){
+    var m=b.querySelector('.mouth').getBoundingClientRect(),x=m.left,y=m.top;
+    var cd=r(420,620);
+    el('cork','','left:'+x+'px;top:'+y+'px;--dx:'+Math.round(Math.cos(angle)*cd)+'px;--dy:'+Math.round(Math.sin(angle)*cd)+'px',1800);
+    for(var i=0;i<70;i++){
+      var a=angle+r(-.32,.32),d=r(140,Math.min(window.innerHeight*.75,560)),sz=Math.round(r(6,20));
+      el('foam','','left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;--dx:'+Math.round(Math.cos(a)*d)+'px;--dy:'+Math.round(Math.sin(a)*d)+'px;--t:'+r(1.4,2.2).toFixed(2)+'s;animation-delay:'+r(0,1.1).toFixed(2)+'s',3600);
+    }
+  }
+  function champagne(){
+    var bl=el('bottle l',BOTTLE+'<span class="mouth"></span>','',3400),br=el('bottle r',BOTTLE+'<span class="mouth"></span>','',3400);
+    setTimeout(function(){spray(bl,-Math.PI/2+0.28);spray(br,-Math.PI/2-0.28);},1050);
+  }
+  function eggRain(){
+    for(var i=0;i<46;i++){
+      var sz=Math.round(r(22,46));
+      el('rain',EGG,'left:'+r(-3,97).toFixed(1)+'vw;width:'+sz+'px;height:'+Math.round(sz*38/30)+'px;animation-duration:'+r(1.3,2.3).toFixed(2)+'s;animation-delay:'+r(0,1.4).toFixed(2)+'s;--r:'+Math.round(r(-540,540))+'deg',4200);
+    }
+  }
+  tirar.addEventListener('click',function(){
+    if(tiros%2===0){champagne();tirar.textContent='¿Y unos huevos?';}
+    else{eggRain();tirar.textContent='Quiero tirar algo';}
+    tiros++;
+    if(navigator.vibrate){navigator.vibrate(40);}
+  });
   // confirmación
   var rsvp=document.getElementById('rsvp'),input=document.getElementById('nombre'),err=document.getElementById('nameerr'),
       msg=document.getElementById('msg'),chg=document.getElementById('chg'),
@@ -265,7 +309,7 @@ h1 .b{color:var(--blue)}
   var saved=store('fiesta_resp');
   if(saved){try{var o=JSON.parse(saved);input.value=o.nombre;show(o.nombre,o.resp);}catch(e){}}
   input.addEventListener('input',function(){err.style.display='none';input.removeAttribute('aria-invalid');});
-  var btns=document.querySelectorAll('.choice');
+  var btns=document.querySelectorAll('.choice.yes');
   for(var j=0;j<btns.length;j++){
     btns[j].addEventListener('click',function(){
       var nombre=input.value.replace(/\s+/g,' ').trim(),resp=this.getAttribute('data-r');
